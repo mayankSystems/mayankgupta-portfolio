@@ -1,0 +1,28 @@
+# ── Stage 1: Build ────────────────────────────────────────────────────────────
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+WORKDIR /app
+COPY pom.xml .
+# Download dependencies first (layer cache optimization)
+RUN mvn dependency:go-offline -B
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+# ── Stage 2: Run ──────────────────────────────────────────────────────────────
+FROM eclipse-temurin:17-jre-alpine
+WORKDIR /app
+
+# Security: run as non-root user
+RUN addgroup -S portfolio && adduser -S portfolio -G portfolio
+USER portfolio
+
+COPY --from=build /app/target/portfolio-backend-1.0.0.jar app.jar
+
+# Place your resume PDF here before building
+# COPY src/main/resources/static/resume.pdf /app/resume.pdf
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", \
+  "-XX:+UseContainerSupport", \
+  "-XX:MaxRAMPercentage=75.0", \
+  "-jar", "app.jar"]
