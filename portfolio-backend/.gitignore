@@ -1,0 +1,68 @@
+# ── Compiled Output ───────────────────────────────────────────────────────────
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# ── Maven ─────────────────────────────────────────────────────────────────────
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# ── Spring Boot ───────────────────────────────────────────────────────────────
+spring-shell.log
+
+# ── Secrets & Environment — NEVER commit these ────────────────────────────────
+.env
+.env.local
+.env.production
+application-local.properties
+application-secret.properties
+*-secret.properties
+
+# ── IntelliJ IDEA ─────────────────────────────────────────────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+.idea_modules/
+
+# ── VS Code ───────────────────────────────────────────────────────────────────
+.vscode/
+*.code-workspace
+
+# ── Eclipse ───────────────────────────────────────────────────────────────────
+.project
+.classpath
+.settings/
+.factorypath
+bin/
+
+# ── OS Files ──────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+logs/
+log/
+
+# ── Test & Coverage Reports ───────────────────────────────────────────────────
+/test-output/
+/surefire-reports/
+*.exec
+
+# ── Docker ────────────────────────────────────────────────────────────────────
+.docker/
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+*.swp
+*.swo
+*~
+*.tmp
