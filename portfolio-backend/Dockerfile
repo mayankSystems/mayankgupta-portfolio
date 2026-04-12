@@ -17,9 +17,6 @@ USER portfolio
 
 COPY --from=build /app/target/portfolio-backend-1.0.0.jar app.jar
 
-# Place your resume PDF here before building
-# COPY src/main/resources/static/resume.pdf /app/resume.pdf
-
 EXPOSE 8080
 
 ENTRYPOINT ["java", \
