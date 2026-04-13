@@ -8,7 +8,7 @@
 <!-- ========================= -->
 <meta property="og:title" content="Mayank Gupta — Backend Engineer | Java • Spring Boot • Kafka" />
 <meta property="og:description" content="Building high-scale microservices handling 50K+ daily transactions with 99.9% uptime. Backend Engineer @ PayU Digital Labs." />
-<meta property="og:image" content="https://mayankgupta-portfolio.vercel.app/og-image.png" />
+<meta property="og:image" content="https://mayankgupta-portfolio.vercel.app/og-image.png?v=2" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Mayank Gupta - Senior Backend Engineer Portfolio" />
@@ -590,18 +590,44 @@
   }
   .course-name { font-size: 0.85rem; color: #fff; font-weight: 500; line-height: 1.4; }
   .course-date { font-size: 0.65rem; color: var(--neon2); }
-  .course-cert {
-    font-size: 0.6rem;
-    color: var(--text3);
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
+  .course-cert { display: none; }
   .course-cert::before {
     content: '✓';
     color: var(--neon2);
     font-size: 0.75rem;
   }
+  .cert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.62rem;
+    color: var(--neon);
+    text-decoration: none;
+    padding: 0.25rem 0.65rem;
+    border: 1px solid rgba(0,216,255,0.25);
+    border-radius: 20px;
+    background: rgba(0,216,255,0.06);
+    transition: all 0.2s;
+    letter-spacing: 0.04em;
+    margin-top: 0.2rem;
+    width: fit-content;
+  }
+  .cert-link:hover { background: rgba(0,216,255,0.12); border-color: var(--neon); }
+  .cert-ongoing {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.62rem;
+    color: var(--gold);
+    padding: 0.25rem 0.65rem;
+    border: 1px solid rgba(251,191,36,0.25);
+    border-radius: 20px;
+    background: rgba(251,191,36,0.06);
+    letter-spacing: 0.04em;
+    margin-top: 0.2rem;
+    width: fit-content;
+  }
+  .cert-ongoing::before { content: '◉'; font-size: 0.5rem; animation: pulse 2s infinite; }
 
   /* CONTACT */
   .contact-wrap {
@@ -878,7 +904,7 @@
       <a href="https://linkedin.com/in/mayanksystems" target="_blank" class="social-link" title="LinkedIn">LI</a>
       <a href="https://leetcode.com/u/mayankSystems/" target="_blank" class="social-link" title="LeetCode">LC</a>
       <a href="https://www.hackerrank.com/profile/dev_mayank8" target="_blank" class="social-link" title="HackerRank">HR</a>
-      <a href="mailto:ce.mayank8@gmail.com" class="social-link" title="Email">✉</a>
+      <a href="/cdn-cgi/l/email-protection#accfc982c1cdd5cdc2c794eccbc1cdc5c082cfc3c1" class="social-link" title="Email">✉</a>
     </div>
   </div>
 </section>
@@ -1181,20 +1207,7 @@
           <div class="ach-badge">TOP 5%</div>
         </div>
       </div>
-      <div class="achievement-card">
-        <div class="ach-icon">📜</div>
-        <div>
-          <div class="ach-title">Spring Boot 3, Spring 6 & Hibernate</div>
-          <div class="ach-sub">Udemy · Jun 2024</div>
-        </div>
-      </div>
-      <div class="achievement-card">
-        <div class="ach-icon">🐳</div>
-        <div>
-          <div class="ach-title">Docker: Hands On</div>
-          <div class="ach-sub">Udemy · Aug 2024</div>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -1212,25 +1225,43 @@
     <div class="courses-grid">
       <div class="course-card">
         <div class="course-provider">Udemy</div>
-        <div class="course-name">Master Microservices with Spring Boot, Docker & Kubernetes</div>
+        <div class="course-name">Master Java: Fundamentals, Collections, Multithreading</div>
+        <div class="course-date">Jan 2026</div>
         <div class="course-cert">Certified</div>
+        <a href="https://www.udemy.com/certificate/UC-f2580f2e-928d-4894-83ea-c559b2af7823/" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="course-card">
+        <div class="course-provider">Udemy · KodeKloud</div>
+        <div class="course-name">Kubernetes for the Absolute Beginners — Hands-on</div>
+        <div class="course-date">Dec 2024</div>
+        <div class="course-cert">Certified</div>
+        <a href="https://www.udemy.com/certificate/UC-c35fbed1-2552-4853-9b6a-b9364bc300d5/" target="_blank" class="cert-link">View Certificate ↗</a>
       </div>
       <div class="course-card">
         <div class="course-provider">Udemy</div>
-        <div class="course-name">Spring Boot 3, Spring 6 & Hibernate for Beginners</div>
-        <div class="course-date">Udemy · Jun 2024</div>
+        <div class="course-name">Master Microservices with Spring Boot, Docker &amp; Kubernetes</div>
+        <div class="course-cert">In Progress</div>
+        <span class="cert-ongoing">In Progress</span>
+      </div>
+      <div class="course-card">
+        <div class="course-provider">Udemy</div>
+        <div class="course-name">Spring Boot 3, Spring 6 &amp; Hibernate for Beginners</div>
+        <div class="course-date">Jun 2024</div>
         <div class="course-cert">Certified</div>
+        <a href="https://www.udemy.com/certificate/UC-00965d13-0c47-4c66-a409-a2f4f1e5be23/" target="_blank" class="cert-link">View Certificate ↗</a>
       </div>
       <div class="course-card">
         <div class="course-provider">Udemy</div>
         <div class="course-name">Docker: From Zero to Hero — Hands On DevOps</div>
-        <div class="course-date">Udemy · Aug 2024</div>
+        <div class="course-date">Aug 2024</div>
         <div class="course-cert">Certified</div>
+        <a href="https://www.udemy.com/certificate/UC-29c47f83-a3c9-41a5-8ccb-b7781cb2bf20/" target="_blank" class="cert-link">View Certificate ↗</a>
       </div>
       <div class="course-card">
         <div class="course-provider">Continuous Learning</div>
         <div class="course-name">Distributed Systems · Event-Driven Architecture · System Design</div>
         <div class="course-cert">Ongoing</div>
+        <span class="cert-ongoing">Ongoing</span>
       </div>
     </div>
   </div>
@@ -1263,7 +1294,7 @@
         </p>
         <div class="contact-detail">
           <div class="contact-detail-icon">✉</div>
-          <a href="mailto:ce.mayank8@gmail.com">ce.mayank8@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#f39096dd9e928a929d98cbb3949e929a9fdd909c9e"><span class="__cf_email__" data-cfemail="7d1e1853101c041c1316453d1a101c1411531e1210">[email&#160;protected]</span></a>
         </div>
         <div class="contact-detail">
           <div class="contact-detail-icon">GH</div>
@@ -1321,7 +1352,7 @@
   <p style="margin-top:0.4rem;font-size:0.6rem">Spring Boot API · HTML/CSS/JS · Deployed on Vercel + Railway</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Intersection observer for fade-in
   document.querySelectorAll('.skill-category, .project-card, .achievement-card, .course-card, .exp-item, .edu-card').forEach(el => {
     el.classList.add('fade-in');
@@ -1332,7 +1363,7 @@
   });
 
   // Contact form — calls Spring Boot API
-  const API_BASE = 'https://mayankgupta-portfolio-production.up.railway.app'; // update after Railway deploy
+  const API_BASE = 'https://mayankgupta-portfolio-production.up.railway.app';
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const btn = this.querySelector('.form-submit');
@@ -1340,29 +1371,40 @@
     btn.textContent = 'sending...';
     btn.disabled = true;
     statusEl.style.display = 'none';
+    statusEl.className = 'form-status';
 
-    const payload = {
-      name: document.getElementById('fname').value,
-      email: document.getElementById('femail').value,
-      subject: document.getElementById('fsubject').value,
-      message: document.getElementById('fmessage').value
+    const name    = document.getElementById('fname').value;
+    const email   = document.getElementById('femail').value;
+    const subject = document.getElementById('fsubject').value;
+    const message = document.getElementById('fmessage').value;
+
+    const payload = { name, email, subject, message };
+
+    const showMailtoFallback = () => {
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+      const subj = encodeURIComponent(subject || 'Message from portfolio');
+      statusEl.className = 'form-status error';
+      statusEl.innerHTML = `API unreachable — <a href="mailto:ce.mayank8@gmail.com?subject=${subj}&body=${body}" style="color:var(--neon);text-decoration:underline;">click here to send via your email client ↗</a>`;
+      statusEl.style.display = 'block';
     };
 
     try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 8000);
       const res = await fetch(`${API_BASE}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        signal: controller.signal
       });
+      clearTimeout(timeout);
       const data = await res.json();
       statusEl.className = 'form-status ' + (data.success ? 'success' : 'error');
-      statusEl.textContent = data.message;
+      statusEl.textContent = data.success ? '✓ Message sent! I\'ll get back to you within 24 hours.' : (data.message || 'Something went wrong. Please try again.');
       statusEl.style.display = 'block';
       if (data.success) this.reset();
     } catch (err) {
-      statusEl.className = 'form-status error';
-      statusEl.textContent = 'Could not connect. Email me directly at ce.mayank8@gmail.com';
-      statusEl.style.display = 'block';
+      showMailtoFallback();
     }
 
     btn.textContent = 'send_message() →';
