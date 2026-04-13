@@ -1,9 +1,8 @@
 package dev.mayank.portfolio.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -11,38 +10,35 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.net.MalformedURLException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 @Slf4j
 @RestController
 @RequestMapping("/api/resume")
 public class ResumeController {
 
-    @Value("${portfolio.resume.path:classpath:static/resume.pdf}")
-    private String resumePath;
+    private static final String RESUME_CLASSPATH = "static/resume.pdf";
+    private static final String RESUME_FILENAME = "MayankGupta_Resume.pdf";
 
     @GetMapping("/download")
     public ResponseEntity<Resource> downloadResume() {
+
         try {
-            Path path = Paths.get(resumePath.replace("classpath:", "src/main/resources/static/"));
-            Resource resource = new UrlResource(path.toUri());
+            Resource resource = new ClassPathResource(RESUME_CLASSPATH);
 
             if (!resource.exists() || !resource.isReadable()) {
-                log.warn("Resume file not found or not readable at path: {}", resumePath);
+                log.warn("Resume not found at classpath:{}", RESUME_CLASSPATH);
                 return ResponseEntity.notFound().build();
             }
 
-            log.info("Resume download requested");
+            log.info("Resume download requested — serving {}", RESUME_FILENAME);
+
             return ResponseEntity.ok()
                     .contentType(MediaType.APPLICATION_PDF)
                     .header(HttpHeaders.CONTENT_DISPOSITION,
-                            "attachment; filename=\"MayankGupta_Resume.pdf\"")
+                            "attachment; filename=\"" + RESUME_FILENAME + "\"")
                     .body(resource);
 
-        } catch (MalformedURLException e) {
-            log.error("Invalid resume path: {}", resumePath, e);
+        } catch (Exception e) {
+            log.error("Error serving resume", e);
             return ResponseEntity.internalServerError().build();
         }
     }
