@@ -58,12 +58,17 @@ public class ContactService {
                 %s
                 
                 ──────────────────────────────────────
+                Source    : Portfolio Contact Form
+                Timestamp : %s
+                IP/Client : Captured via frontend (optional future)
+                
                 Reply directly to this email to respond.
                 """.formatted(
                 request.getName(),
                 request.getEmail(),
                 request.getSubject() != null ? request.getSubject() : "N/A",
-                request.getMessage()
+                request.getMessage(),
+                java.time.LocalDateTime.now()
         );
 
         message.setText(body);
