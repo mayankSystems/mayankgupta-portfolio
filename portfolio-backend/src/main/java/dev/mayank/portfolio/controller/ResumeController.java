@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/resume")
 public class ResumeController {
 
-    private static final String RESUME_CLASSPATH = "static/resume.pdf";
+    private static final String RESUME_CLASSPATH = "static/resume-v3.pdf";
     private static final String RESUME_FILENAME = "MayankGupta_Resume.pdf";
 
     @GetMapping("/download")
