@@ -904,7 +904,7 @@
       <a href="https://linkedin.com/in/mayanksystems" target="_blank" class="social-link" title="LinkedIn">LI</a>
       <a href="https://leetcode.com/u/mayankSystems/" target="_blank" class="social-link" title="LeetCode">LC</a>
       <a href="https://www.hackerrank.com/profile/dev_mayank8" target="_blank" class="social-link" title="HackerRank">HR</a>
-      <a href="/cdn-cgi/l/email-protection#accfc982c1cdd5cdc2c794eccbc1cdc5c082cfc3c1" class="social-link" title="Email">✉</a>
+      <a href="mailto:ce.mayank8@gmail.com" class="social-link" title="Email">✉</a>
     </div>
   </div>
 </section>
@@ -1309,7 +1309,7 @@
         </p>
         <div class="contact-detail">
           <div class="contact-detail-icon">✉</div>
-          <a href="/cdn-cgi/l/email-protection#f39096dd9e928a929d98cbb3949e929a9fdd909c9e"><span class="__cf_email__" data-cfemail="7d1e1853101c041c1316453d1a101c1411531e1210">[email&#160;protected]</span></a>
+          <a id="email-link" class="contact-detail" style="color:var(--text)">ce.mayank8@gmail.com</a>
         </div>
         <div class="contact-detail">
           <div class="contact-detail-icon">GH</div>
@@ -1367,7 +1367,17 @@
   <p style="margin-top:0.4rem;font-size:0.6rem">Spring Boot API · HTML/CSS/JS · Deployed on Vercel + Railway</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+  // Email obfuscation (replace Cloudflare)
+  const user = "ce.mayank8";
+  const domain = "gmail.com";
+
+  const emailLink = document.getElementById("email-link");
+
+  if (emailLink) {
+    emailLink.href = `mailto:${user}@${domain}`;
+  }
+
   // Intersection observer for fade-in
   document.querySelectorAll('.skill-category, .project-card, .achievement-card, .course-card, .exp-item, .edu-card').forEach(el => {
     el.classList.add('fade-in');
