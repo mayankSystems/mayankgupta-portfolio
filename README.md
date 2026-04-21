@@ -147,17 +147,13 @@ A successful contact form submission returns `{"success":true}` and sends emails
 
 ## 🔧 Environment Variables
 
-| Variable         | Purpose                          | Action        |
-|------------------|----------------------------------|---------------|
-| `SENDGRID_API_KEY` | API key for sending emails      | **Keep**      |
-| `CONTACT_EMAIL`    | Email to receive contact form  | **Keep**      |
-| `FROM_EMAIL`       | Verified sender email address  | **Keep**      |
-| `FRONTEND_URL`     | Frontend domain (for CORS)     | **Keep**      |
-| `PORT`             | Server port (default 8080)     | **Keep**      |
-| `MAIL_HOST`        | (SMTP host, unused)           | **Remove**    |
-| `MAIL_PORT`        | (SMTP port, unused)           | **Remove**    |
-| `MAIL_USERNAME`    | (SMTP username, unused)       | **Remove**    |
-| `MAIL_PASSWORD`    | (SMTP password, unused)       | **Remove**    |
+| Variable         | Purpose                          |
+|------------------|----------------------------------|
+| `SENDGRID_API_KEY` | API key for sending emails     |
+| `CONTACT_EMAIL`    | Email to receive contact form  |
+| `FROM_EMAIL`       | Verified sender email address  |
+| `FRONTEND_URL`     | Frontend domain (for CORS)     |
+| `PORT`             | Server port (default 8080)     |
 
 ## ⚠️ Troubleshooting
 
