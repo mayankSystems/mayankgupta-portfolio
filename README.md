@@ -1,24 +1,24 @@
 # 🚀 Mayank Gupta — Portfolio Website
 
 ![Deployed on Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
-![Deployed on Railway](https://img.shields.io/badge/Railway-131415?style=for-the-badge&logo=railway&logoColor=white)
+![Deployed on Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
 
 > **Live site:** [Mayank's Portfolio](https://mayankgupta-portfolio.vercel.app)  
-> **Backend API:** [Backend's Health Check](https://your-api-url.up.railway.app/api/health)  
+> **Backend API:** [Backend's Health Check](https://your-api-url.onrender.com/api/health)
 
 A professional full-stack portfolio: a static site (HTML/CSS/JS) front-end with a Spring Boot REST API backend. Features include a contact form (emails via SendGrid), resume download (latest PDF), and a responsive, animated UI. Deployed on Vercel (frontend) and Railway (backend).
 
 ## 🛠️ Tech Stack
 
-| Layer          | Technology                         |
-|--------------- |-------------------------------------|
-| **Frontend**   | HTML5 · CSS3 · Vanilla JS           |
+| Layer          | Technology                             |
+|--------------- |----------------------------------------|
+| **Frontend**   | HTML5 · CSS3 · Vanilla JS              |
 | **Backend**    | Java 17 · Spring Boot 3.2 · Spring Web |
-| **Email**      | SendGrid API (Java SDK)            |
-| **Validation** | Jakarta Bean Validation           |
-| **Rate Limiting** | Bucket4j (3 req/IP/hour)       |
-| **Deployment** | Vercel (FE) · Railway (BE)        |
-| **Container**  | Docker (multi-stage, non-root)    |
+| **Email**      | SendGrid API (Java SDK)                |
+| **Validation** | Jakarta Bean Validation                |
+| **Rate Limiting** | Bucket4j (3 req/IP/hour)            |
+| **Deployment** | Vercel (FE) · Render (BE)              |
+| **Container**  | Docker (multi-stage, non-root)         |
 
 ## ✨ Features
 
@@ -135,7 +135,16 @@ A successful contact form submission returns `{"success":true}` and sends emails
 
 ## 🌐 Deployment
 
-- **Backend (Railway):** Connect the `portfolio-backend` folder on Railway. Set the root directory to `portfolio-backend`. Add the following environment variables:
+- **Backend (Render):** 
+  1. Go to [render.com](https://render.com) and sign in with GitHub
+  2. Click "New +" → "Web Service"
+  3. Connect your `mayankgupta-portfolio` GitHub repository
+  4. Set the following:
+     - **Name:** portfolio-backend
+     - **Environment:** Docker
+     - **Root Directory:** `portfolio-backend`
+     - **Auto-Deploy:** Yes (deploy on push)
+  5. Add environment variables in the Render dashboard:
   ```
   SENDGRID_API_KEY=YOUR_SENDGRID_KEY
   CONTACT_EMAIL=ce.mayank8@gmail.com
@@ -143,7 +152,7 @@ A successful contact form submission returns `{"success":true}` and sends emails
   FRONTEND_URL=https://your-portfolio.vercel.app
   PORT=8080
   ```
-- **Frontend (Vercel):** Connect the `portfolio` folder on Vercel (Framework: Other / Static). After deploying, update the `API_BASE` URL in `index.html` to your Railway backend URL (e.g. `https://your-railway-app.up.railway.app`).
+- **Frontend (Vercel):** Connect the `portfolio` folder on Vercel (Framework: Other / Static). After deploying, update the `API_BASE` URL in `index.html` to your Render backend URL `(e.g. https://portfolio-backend.onrender.com)`.
 
 ## 🔧 Environment Variables
 
@@ -158,7 +167,7 @@ A successful contact form submission returns `{"success":true}` and sends emails
 ## ⚠️ Troubleshooting
 
 - **CORS Errors:** Ensure your backend allows your frontend origin. For example, use `@CrossOrigin(origins="https://your-portfolio.vercel.app")` on controllers or configure global CORS to include your Vercel domain or `http://localhost:3000` for local dev.
-- **SendGrid 401 Unauthorized:** Make sure `SENDGRID_API_KEY` is correctly set in your environment (Railway/Heroku/local).
+- **SendGrid 401 Unauthorized:** Make sure SENDGRID_API_KEY is correctly set in your environment (Render/local).
 - **SendGrid 403 Forbidden:** The `FROM_EMAIL` must be a verified sender identity in SendGrid (via Single Sender Verification or Domain Authentication). Use a verified email (e.g. your Gmail) or set up domain authentication to fix this.
 - **Email Not Received:** Check SendGrid Email Activity for delivery, bounces, or drops. A "Dropped" status often indicates unverified sender or spam filtering.
 - **Broken Email Link (404 /cdn-cgi):** Remove any Cloudflare `/cdn-cgi/email-protection` script from the HTML. Use a direct `mailto:` link instead (the JS fallback sets this up).
