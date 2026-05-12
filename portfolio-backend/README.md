@@ -29,7 +29,7 @@ portfolio-backend/
 │               └── resume.pdf  ← PUT YOUR RESUME HERE
 ├── pom.xml
 ├── Dockerfile
-└── railway.toml
+└── render.yaml
 ```
 
 ---
@@ -136,7 +136,7 @@ curl -X POST http://localhost:8080/api/contact \
 
 ### Prerequisites
 - SendGrid account with API key
-- Railway account (recommended) or similar deployment platform
+- Render account or similar deployment platform
 
 ---
 
@@ -149,13 +149,17 @@ curl -X POST http://localhost:8080/api/contact \
 
 ---
 
-### Step 2 — Deploy Backend to Railway
+### Step 2 — Deploy Backend to Render
 
-1. Go to railway.app and sign in with GitHub
-2. Click New Project → Deploy from GitHub Repo
+1. Go to render.com and sign in with GitHub
+2. Click "New +" → "Web Service"
 3. Select the mayankgupta-portfolio repository
-4. Set the root directory to portfolio-backend
-5. Add these Environment Variables in Railway dashboard:
+4. Configure the deployment:
+   - **Name:** portfolio-backend
+   - **Environment:** Docker
+   - **Root Directory:** portfolio-backend
+   - **Auto-Deploy:** Yes
+5. Add these Environment Variables in Render dashboard:
 
 ```
 SENDGRID_API_KEY=your-sendgrid-api-key
@@ -163,16 +167,9 @@ PORT=8080
 FRONTEND_URL=https://your-portfolio.vercel.app
 ```
 
-6. Update the portfolio config in application.properties:
-
-```properties
-portfolio.email.to=your-email@example.com
-portfolio.email.from=noreply@yourportfolio.com
-portfolio.cors.allowed-origins=https://your-portfolio.vercel.app
-```
-
-7. Railway will auto-detect the railway.toml and deploy
-8. Note your Railway URL: https://portfolio-api-production.up.railway.app
+6. Click "Create Web Service" and wait for deployment (~5-10 minutes)
+7. Note your Render URL: https://portfolio-backend.onrender.com
+8. Update FRONTEND_URL with your Vercel URL if needed
 
 ---
 
@@ -186,10 +183,10 @@ portfolio.cors.allowed-origins=https://your-portfolio.vercel.app
 
 6. Update API_BASE in frontend/index.html:
 ```javascript
-const API_BASE = 'https://your-api.up.railway.app';
+const API_BASE = 'https://portfolio-backend.onrender.com';
 ```
 
-7. Update FRONTEND_URL in Railway environment variables with your Vercel URL:
+7. Update FRONTEND_URL in Render environment variables with your Vercel URL:
 ```
 FRONTEND_URL=https://your-portfolio.vercel.app
 ```
@@ -230,17 +227,17 @@ Both notification and confirmation emails use:
 
 ## 🛠️ Tech Stack
 
-| Layer        | Technology                  |
-|-------------|---------------------------|
-| Runtime | Java 17                    |
-| Framework | Spring Boot 3.2.5          |
-| Build   | Maven 3.8+                |
-| Email   | SendGrid Java SDK v4.9.3  |
-| Rate Limiting | Bucket4j v8.10.1     |
-| Validation | Jakarta Bean Validation   |
-| Logging | SLF4J + Logback           |
-| Utilities | Lombok                   |
-| Deploy | Docker + Railway          |
+| Layer        | Technology             |
+|-------------|-------------------------|
+| Runtime | Java 17                     |
+| Framework | Spring Boot 3.2.5         |
+| Build   | Maven 3.8+                  |
+| Email   | SendGrid Java SDK v4.9.3    |
+| Rate Limiting | Bucket4j v8.10.1      |
+| Validation | Jakarta Bean Validation  |
+| Logging | SLF4J + Logback             |
+| Utilities | Lombok                    |
+| Deploy | Docker + Render              |
 
 ---
 
