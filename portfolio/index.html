@@ -1384,7 +1384,7 @@
 <!-- FOOTER -->
 <footer>
   <p>built with ❤️ · <span>Mayank Gupta</span> · 2026 · Bengaluru, India</p>
-  <p style="margin-top:0.4rem;font-size:0.6rem">Spring Boot API · HTML/CSS/JS · Deployed on Vercel + Railway</p>
+  <p style="margin-top:0.4rem;font-size:0.6rem">Spring Boot API · HTML/CSS/JS · Deployed on Vercel + Render</p>
 </footer>
 
 <script>
@@ -1447,10 +1447,24 @@
         body: JSON.stringify(payload),
         signal: controller.signal
       });
+
       clearTimeout(timeout);
-      const data = await res.json();
+      if (!res.ok) {
+        throw new Error("API failed");
+      }
+
+      let data;
+      try {
+        data = await res.json();
+      } catch {
+        data = { success: true }; // fallback
+      }
+
       statusEl.className = 'form-status ' + (data.success ? 'success' : 'error');
-      statusEl.innerHTML = data.success ? '✅ Message sent successfully. I\'ll get back within 24 hours.' : '❌ Failed to send message. Please try again.';
+      statusEl.textContent = data.success
+        ? '✅ Message sent! I\'ll get back within 24 hours.'
+        : '❌ Failed to send message. Please try again.';
+
       statusEl.style.display = 'block';
       if (data.success) this.reset();
     } catch (err) {
