@@ -725,6 +725,26 @@
     border: 1px solid rgba(255,107,53,0.3);
     color: var(--accent);
   }
+  .form-status.loading {
+    display: block;
+    background: rgba(0, 200, 255, 0.08);
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    color: #00c8ff;
+  }
+  .form-status.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   /* FOOTER */
   footer {
@@ -1353,10 +1373,9 @@
           <label class="form-label">MESSAGE</label>
           <textarea class="form-textarea" rows="5" placeholder="Tell me about the opportunity..." required id="fmessage"></textarea>
         </div>
+        <div class="form-hint">I usually respond within 24 hours</div>
         <button type="submit" class="form-submit">send_message() →</button>
-        <div class="form-status success" id="formStatus">
-          ✓ Message sent! I'll get back to you within 24 hours.
-        </div>
+        <div class="form-status" id="formStatus"></div>
       </form>
     </div>
   </div>
@@ -1396,8 +1415,11 @@
     const statusEl = document.getElementById('formStatus');
     btn.textContent = 'sending...';
     btn.disabled = true;
-    statusEl.style.display = 'none';
-    statusEl.className = 'form-status';
+
+    // Show loading state
+    statusEl.className = 'form-status loading fade-in';
+    statusEl.textContent = '⏳ Sending your message...';
+    statusEl.style.display = 'block';
 
     const name    = document.getElementById('fname').value;
     const email   = document.getElementById('femail').value;
@@ -1409,7 +1431,7 @@
     const showMailtoFallback = () => {
       const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
       const subj = encodeURIComponent(subject || 'Message from portfolio');
-      statusEl.className = 'form-status error';
+      statusEl.className = 'form-status error fade-in';
       statusEl.innerHTML = `API unreachable — <a href="mailto:ce.mayank8@gmail.com?subject=${subj}&body=${body}" style="color:var(--neon);text-decoration:underline;">click here to send via your email client ↗</a>`;
       statusEl.style.display = 'block';
     };
@@ -1428,15 +1450,18 @@
       clearTimeout(timeout);
       const data = await res.json();
       statusEl.className = 'form-status ' + (data.success ? 'success' : 'error');
-      statusEl.textContent = data.success ? '✓ Message sent! I\'ll get back to you within 24 hours.' : (data.message || 'Something went wrong. Please try again.');
+      statusEl.innerHTML = data.success ? '✅ Message sent successfully. I\'ll get back within 24 hours.' : '❌ Failed to send message. Please try again.';
       statusEl.style.display = 'block';
       if (data.success) this.reset();
     } catch (err) {
       showMailtoFallback();
     }
 
-    btn.textContent = 'send_message() →';
-    btn.disabled = false;
+    btn.textContent = data.success ? 'sent ✓' : 'retry →';
+    setTimeout(() => {
+      btn.textContent = 'send_message() →';
+      btn.disabled = false;
+    }, 1500);
   });
 
   // Typing effect for hero
