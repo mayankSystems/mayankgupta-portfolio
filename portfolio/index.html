@@ -7,8 +7,8 @@
 <!-- ========================= -->
 <!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
 <!-- ========================= -->
-<meta property="og:title" content="Mayank Gupta — Backend Engineer | Java • Spring Boot • Kafka" />
-<meta property="og:description" content="Building high-scale microservices handling 50K+ daily transactions with 99.9% uptime. Backend Engineer @ PayU Digital Labs." />
+<meta property="og:title" content="Mayank Gupta — Backend Engineer | Payments & Distributed Systems" />
+<meta property="og:description" content="Building secure Java microservices for a 3DS authentication platform supporting 10 partner banks across six environments. Backend Engineer @ PayU Digital Labs." />
 <meta property="og:image" content="https://mayankgupta-portfolio.vercel.app/og-image.png?v=2" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -22,8 +22,8 @@
 <!-- Twitter Card -->
 <!-- ========================= -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Mayank Gupta — Backend Engineer | Java • Microservices" />
-<meta name="twitter:description" content="3.9+ years building scalable systems with Spring Boot, Kafka & Kubernetes. Currently @ PayU." />
+<meta name="twitter:title" content="Mayank Gupta — Backend Engineer | Payments & Distributed Systems" />
+<meta name="twitter:description" content="4+ years building secure Java microservices, 3DS authentication, and event-driven platforms. Currently @ PayU." />
 <meta name="twitter:image" content="https://mayankgupta-portfolio.vercel.app/og-image.png" />
 <meta name="twitter:image:alt" content="Mayank Gupta Backend Engineer Portfolio" />
 <meta name="twitter:creator" content="@MayankSystems" />
@@ -31,10 +31,10 @@
 <!-- ========================= -->
 <!-- SEO Enhancement -->
 <!-- ========================= -->
-<meta name="description" content="Portfolio of Mayank Gupta, Backend Engineer specializing in Java, Spring Boot, Kafka, Microservices, and Distributed Systems." />
-<meta name="keywords" content="Mayank Gupta, Backend Engineer, Java, Spring Boot, Microservices, Kafka, Kubernetes, PayU" />
+<meta name="description" content="Portfolio of Mayank Gupta, a Backend Engineer specializing in Java, Spring Boot, secure payments, 3DS authentication, Kafka, and distributed systems." />
+<meta name="keywords" content="Mayank Gupta, Backend Engineer, Java, Spring Boot, Payments, 3DS2, PCI-DSS, Kafka, Distributed Systems, PayU" />
 <meta name="author" content="Mayank Gupta" />
-<title>Mayank Gupta | Senior Backend Engineer</title>
+<title>Mayank Gupta | Backend Engineer — Payments & Distributed Systems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -139,13 +139,7 @@
     gap: 4rem;
   }
   .hero-left { flex: 1; }
-  .hero-right {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
+  .hero-right { flex-shrink: 0; display:flex; align-items:center; justify-content:center; }
   .terminal-prompt {
     font-size: 0.75rem;
     color: var(--text3);
@@ -293,6 +287,18 @@
     background: var(--card);
   }
   .social-link:hover { border-color: var(--neon); color: var(--neon); background: rgba(0,216,255,0.07); }
+  .social-link .brand-icon { width:17px; height:17px; }
+  .social-icon-svg { width:18px; height:18px; color:var(--neon); fill:currentColor; }
+  .avatar-social-orbit { position:relative; width:340px; height:325px; }
+  .avatar-social-orbit .avatar-wrap { position:absolute; top:0; left:50%; transform:translateX(-50%); }
+  .avatar-social-orbit .social-links { position:absolute; top:208px; left:50%; transform:translateX(-50%); width:300px; height:105px; display:block; }
+  .avatar-social-orbit .social-links::before { content:''; position:absolute; left:21px; right:21px; top:-26px; bottom:10px; border:1px dashed rgba(0,216,255,0.28); border-top:0; border-radius:0 0 170px 170px; }
+  .avatar-social-orbit .social-link { position:absolute; z-index:1; box-shadow:0 8px 18px rgba(0,0,0,0.24); }
+  .avatar-social-orbit .social-link:nth-child(1) { left:4px; top:0; }
+  .avatar-social-orbit .social-link:nth-child(2) { left:61px; top:43px; }
+  .avatar-social-orbit .social-link:nth-child(3) { left:130px; top:58px; }
+  .avatar-social-orbit .social-link:nth-child(4) { right:61px; top:43px; }
+  .avatar-social-orbit .social-link:nth-child(5) { right:4px; top:0; }
 
   /* SECTION STYLES */
   section { position: relative; z-index: 1; }
@@ -761,24 +767,57 @@
   /* EDUCATION ROW */
   .edu-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
   }
   .edu-card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 1.25rem 1.5rem;
+    padding: 1.5rem;
     display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+    gap: 1rem;
     transition: border-color 0.2s;
   }
   .edu-card:hover { border-color: var(--border2); }
-  .edu-degree { font-size: 0.85rem; color: var(--neon); font-weight: 500; }
-  .edu-school { font-size: 0.9rem; color: #fff; }
-  .edu-year { font-size: 0.65rem; color: var(--text3); }
+  .edu-icon { width:42px; height:42px; flex:0 0 42px; display:grid; place-items:center; border-radius:8px; background:rgba(0,216,255,0.08); border:1px solid rgba(0,216,255,0.2); color:var(--neon); font-size:1.3rem; }
+  .edu-card:nth-child(2) .edu-icon { color:var(--gold); background:rgba(251,191,36,0.07); border-color:rgba(251,191,36,0.25); }
+  .edu-degree { font-size:0.68rem; color:var(--neon); font-weight:500; letter-spacing:0.1em; margin-bottom:0.25rem; }
+  .edu-school { font-family:var(--sans); font-size:1rem; color:#fff; font-weight:700; }
+  .edu-year { font-size:0.68rem; color:var(--text3); margin-top:0.25rem; }
+  .edu-program { font-size:0.76rem; color:var(--text2); line-height:1.6; margin-top:0.45rem; }
+  .edu-gpa { display:inline-block; margin-top:0.6rem; padding:0.18rem 0.45rem; border-radius:4px; font-size:0.62rem; color:var(--neon2); background:rgba(0,255,157,0.06); border:1px solid rgba(0,255,157,0.2); }
+
+  /* ABOUT */
+  .about-layout { display:grid; grid-template-columns:1.2fr 1fr; gap:3rem; align-items:start; }
+  .about-intro { background:rgba(0,216,255,0.04); border:1px solid rgba(0,216,255,0.15); border-left:3px solid var(--neon); border-radius:0 6px 6px 0; padding:1rem 1.25rem; margin-bottom:1.5rem; font-size:0.82rem; color:var(--text2); line-height:1.8; }
+  .about-story { display:flex; flex-direction:column; gap:0.85rem; }
+  .about-story-card { border-left:2px solid var(--border2); padding:0.25rem 0 0.25rem 1rem; }
+  .about-story-card.current { border-color:var(--neon); }
+  .about-story-card.payu { border-color:var(--neon2); }
+  .about-story-card.previous { border-color:var(--neon3); }
+  .about-eyebrow { font-size:0.62rem; letter-spacing:0.12em; color:var(--text3); margin-bottom:0.35rem; }
+  .about-story-card p { font-size:0.84rem; color:var(--text2); line-height:1.85; }
+  .scope-panel { margin:1.25rem 0; padding:1rem; border:1px solid var(--border); border-radius:8px; background:var(--card); }
+  .scope-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0.75rem; }
+  .scope-num { font-family:var(--sans); font-size:1.35rem; font-weight:800; color:var(--neon); }
+  .scope-stat:nth-child(2) .scope-num { color:var(--neon2); }
+  .scope-stat:nth-child(3) .scope-num { color:var(--gold); }
+  .scope-label { font-size:0.62rem; letter-spacing:0.08em; color:var(--text3); }
+  .scope-detail { font-size:0.73rem; color:var(--text3); line-height:1.75; margin-top:0.9rem; }
+  .philosophy { margin:1.5rem 0; padding:1rem 1.25rem; border:1px solid rgba(124,58,237,0.35); border-radius:8px; background:rgba(124,58,237,0.06); }
+  .philosophy-label { font-size:0.62rem; color:#a78bfa; letter-spacing:0.12em; margin-bottom:0.4rem; }
+  .philosophy p { font-family:var(--sans); color:#e2d8ff; font-size:1rem; line-height:1.5; }
+  .interests-panel { margin:1.5rem 0 0; padding:1.1rem 1.25rem; border:1px solid rgba(251,191,36,0.28); border-radius:8px; background:rgba(251,191,36,0.045); }
+  .interests-label { font-size:0.62rem; color:var(--gold); letter-spacing:0.12em; margin-bottom:0.45rem; }
+  .interests-copy { font-size:0.8rem; color:var(--text2); line-height:1.75; }
+  .interest-tags { display:flex; flex-wrap:wrap; gap:0.45rem; margin-top:0.8rem; }
+  .interest-tag { font-size:0.68rem; color:#f7d674; background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.22); border-radius:999px; padding:0.3rem 0.65rem; }
+  .education-heading { display:flex; align-items:center; gap:0.55rem; margin-top:1.75rem; margin-bottom:-0.5rem; font-size:0.72rem; letter-spacing:0.1em; color:var(--text2); }
+  .education-heading span { color:var(--gold); font-size:1rem; }
+  .brand-icon { width:18px; height:18px; object-fit:contain; }
+  .contact-icon-svg { width:18px; height:18px; color:var(--neon); fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
 
   /* MOBILE */
   @media (max-width: 768px) {
@@ -787,8 +826,11 @@
     #hero { flex-direction: column-reverse; padding: 5rem 1.25rem 3rem; gap: 2.5rem; }
     .hero-right { width: 100%; }
     .avatar-wrap { width: 180px; height: 180px; }
+    .avatar-social-orbit { width:300px; height:275px; }
+    .avatar-social-orbit .social-links { top:157px; transform:translateX(-50%) scale(0.84); transform-origin:top center; }
     .section-wrap { padding: 3.5rem 1.25rem; }
     .contact-wrap { grid-template-columns: 1fr; }
+    .about-layout { grid-template-columns:1fr; }
     .edu-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
   }
@@ -868,7 +910,9 @@
     <a href="#about">about</a>
     <a href="#skills">skills</a>
     <a href="#experience">experience</a>
+    <a href="#education">education</a>
     <a href="#projects">projects</a>
+    <a href="#system-thinking">approach</a>
     <a href="#achievements">achievements</a>
     <a href="#courses">courses</a>
     <a href="#contact">contact</a>
@@ -880,29 +924,34 @@
   <div class="hero-left">
     <div class="terminal-prompt">mayank@portfolio:~$ ./introduce.sh</div>
     <h1 class="hero-name">Hi, I'm<br><span class="neon">Mayank</span> Gupta</h1>
-    <div class="hero-title">Senior Backend Engineer · India</div>
+    <div class="hero-title">Backend Engineer · Payments &amp; Distributed Systems</div>
     <p class="hero-bio">
-      <span class="highlight">3.9+ years</span> building scalable microservices &amp; distributed systems.
-      Proven track record leading teams, optimizing high-throughput pipelines, and maintaining
-      <span class="highlight">99.9%+ uptime</span> across enterprise deployments —
-      <span class="highlight">Java · Spring Boot · Kafka · Docker · K8s · AWS</span>.
+      <span class="highlight">4+ years</span> building scalable <span class="highlight">Java microservices and distributed systems</span>—from high-throughput payment authentication to enterprise automation. Proven track record leading engineers, optimizing Kafka and data pipelines, and operating secure production platforms across <span class="highlight">10 partner banks</span>.
     </p>
     <div class="hero-stats">
       <div class="stat-item">
-        <div class="stat-num">3.9+</div>
+        <div class="stat-num">4+</div>
         <div class="stat-label">YEARS EXP</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">50K+</div>
-        <div class="stat-label">DAILY TRANSACTIONS</div>
+        <div class="stat-num">7–10M</div>
+        <div class="stat-label">AUTHS / MONTH</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">99.95%</div>
-        <div class="stat-label">API UPTIME</div>
+        <div class="stat-num">182</div>
+        <div class="stat-label">PEAK TPS</div>
       </div>
-      <div class="stat-item">
+        <div class="stat-item">
         <div class="stat-num">350+</div>
         <div class="stat-label">BUGS SQUASHED</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10</div>
+        <div class="stat-label">PARTNER BANKS</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">6</div>
+        <div class="stat-label">ENVIRONMENTS</div>
       </div>
     </div>
     <div class="hero-btns">
@@ -913,19 +962,21 @@
   </div>
 
   <div class="hero-right">
-    <div class="avatar-wrap">
-      <div class="avatar-border"></div>
-      <div class="avatar-inner">
-        <img src="photo.png" alt="Mayank Gupta" onerror="this.style.display='none';this.parentNode.innerHTML='<div style=\'font-family:var(--sans);font-size:3rem;font-weight:800;color:var(--neon)\'>MG</div>'">
+    <div class="avatar-social-orbit">
+      <div class="avatar-wrap">
+        <div class="avatar-border"></div>
+        <div class="avatar-inner">
+          <img src="photo.png" alt="Mayank Gupta" onerror="this.style.display='none';this.parentNode.innerHTML='<div style=\'font-family:var(--sans);font-size:3rem;font-weight:800;color:var(--neon)\'>MG</div>'">
+        </div>
+        <div class="avatar-badge">● OPEN TO WORK</div>
       </div>
-      <div class="avatar-badge">● OPEN TO WORK</div>
-    </div>
-    <div class="social-links">
-      <a href="https://github.com/mayankSystems" target="_blank" class="social-link" title="GitHub">GH</a>
-      <a href="https://linkedin.com/in/mayanksystems" target="_blank" class="social-link" title="LinkedIn">LI</a>
-      <a href="https://leetcode.com/u/mayankSystems/" target="_blank" class="social-link" title="LeetCode">LC</a>
-      <a href="https://www.hackerrank.com/profile/dev_mayank8" target="_blank" class="social-link" title="HackerRank">HR</a>
-      <a href="mailto:ce.mayank8@gmail.com" class="social-link" title="Email">✉</a>
+      <div class="social-links">
+        <a href="https://github.com/mayankSystems" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub" aria-label="GitHub"><img class="brand-icon" src="https://cdn.simpleicons.org/github/00d8ff" alt=""></a>
+        <a href="https://linkedin.com/in/mayanksystems" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn" aria-label="LinkedIn"><svg class="social-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V8.99h3.41v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.26 2.37 4.26 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm-1.78 13.02h3.56V8.99H3.56v11.46Z"/></svg></a>
+        <a href="https://leetcode.com/u/mayankSystems/" target="_blank" rel="noopener noreferrer" class="social-link" title="LeetCode" aria-label="LeetCode"><img class="brand-icon" src="https://cdn.simpleicons.org/leetcode/00d8ff" alt=""></a>
+        <a href="https://www.hackerrank.com/profile/dev_mayank8" target="_blank" rel="noopener noreferrer" class="social-link" title="HackerRank" aria-label="HackerRank"><img class="brand-icon" src="https://cdn.simpleicons.org/hackerrank/00d8ff" alt=""></a>
+        <a href="mailto:ce.mayank8@gmail.com" class="social-link" title="Email" aria-label="Email"><svg class="social-icon-svg" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></a>
+      </div>
     </div>
   </div>
 </section>
@@ -941,36 +992,46 @@
       <div class="section-line"></div>
     </div>
 
-    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:start;">
+    <div class="about-layout">
       <div>
-        <div style="background:rgba(0,216,255,0.04);border:1px solid rgba(0,216,255,0.15);border-left:3px solid var(--neon);border-radius:0 6px 6px 0;padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:0.82rem;color:var(--text2);line-height:1.8;">
-          Backend Software Engineer with <strong style="color:var(--neon)">3.9+ years</strong> of experience building scalable microservices and distributed systems using Java and Spring Boot. Proven track record leading teams, optimizing high-throughput pipelines, and maintaining <strong style="color:var(--neon2)">99.9%+ uptime</strong> across enterprise deployments.
+        <div class="about-intro">
+          Backend Software Engineer with <strong style="color:var(--neon)">4+ years</strong> building Java and Spring Boot systems where security, reliability, and operational clarity are first-class requirements. I design for <strong style="color:var(--neon2)">failure, observability, and safe change</strong> from the outset.
         </div>
-        <p style="font-size:0.88rem;color:var(--text2);line-height:1.9;margin-bottom:1.25rem;">
-          I'm a Senior Backend Engineer from <strong style="color:#fff">New Delhi, India</strong>, currently based in <strong style="color:#fff">Bengaluru, Karnataka</strong>.
-          I work at <strong style="color:var(--neon)">PayU Digital Labs</strong> building enterprise-scale microservices that power fintech infrastructure.
-        </p>
-        <p style="font-size:0.88rem;color:var(--text2);line-height:1.9;margin-bottom:1.25rem;">
-          With a background spanning <strong style="color:#fff">3+ years at HCLSoftware</strong>, I've led teams, designed APIs serving tens of thousands of daily transactions,
-          and shipped production systems with 99.9%+ stability across globally deployed environments.
-        </p>
-        <p style="font-size:0.88rem;color:var(--text2);line-height:1.9;">
-          When I'm not architecting distributed systems or diving deep into backend internals,
-          you'll find me <strong style="color:var(--neon2)">gaming</strong> or <strong style="color:var(--neon2)">reading books</strong> — always curious, always learning.
-        </p>
+        <div class="about-story">
+          <div class="about-story-card current">
+            <div class="about-eyebrow">CURRENTLY</div>
+            <p>I'm a Senior Backend Engineer from <strong style="color:#fff">New Delhi, India</strong>, currently based in <strong style="color:#fff">Bengaluru, Karnataka</strong>.</p>
+          </div>
+          <div class="about-story-card payu">
+            <div class="about-eyebrow" style="color:var(--neon2);">PAYU DIGITAL LABS · PAYMENTS PLATFORM</div>
+            <p>I work on <strong style="color:var(--neon2);">EMV 3-D Secure (3DS2) authentication and payment integrations</strong>, delivering tokenized-payment and Visa Payment Passkey flows, success-rate analytics, PCI-DSS remediation, and rollout support.</p>
+          </div>
+        </div>
+        <div class="scope-panel">
+          <div class="scope-stats">
+            <div class="scope-stat"><div class="scope-num">10</div><div class="scope-label">PARTNER BANKS</div></div>
+            <div class="scope-stat"><div class="scope-num">5 + 1</div><div class="scope-label">DEDICATED + MULTI-TENANT</div></div>
+            <div class="scope-stat"><div class="scope-num">6</div><div class="scope-label">ENVIRONMENTS</div></div>
+          </div>
+          <p class="scope-detail">I help operate dedicated environments for <strong style="color:var(--text2);">SBI, Axis, Mega, and ICICI</strong>. HDFC operates its own dedicated estate. Our multi-tenant environment supports <strong style="color:var(--text2);">YES, Airtel Payments Bank, Seylan, Dialog Finance, and Interswitch</strong>.</p>
+        </div>
+        <div class="about-story-card previous">
+          <div class="about-eyebrow" style="color:#a78bfa;">PREVIOUSLY · HCLSOFTWARE</div>
+          <p>Built high-availability APIs, Kafka orchestration, optimized data pipelines, and delivery automation for enterprise systems.</p>
+        </div>
 
-        <div class="edu-grid">
-          <div class="edu-card">
-            <div class="edu-degree">M.Tech</div>
-            <div class="edu-school">NIT Warangal</div>
-            <div class="edu-year">Construction Technology &amp; Management · GPA 8.07/10.0</div>
-          </div>
-          <div class="edu-card">
-            <div class="edu-degree">B.Tech</div>
-            <div class="edu-school">NSUT West Campus</div>
-            <div class="edu-year">Civil Engineering · GPA 8.40/10.0</div>
+        <div class="interests-panel">
+          <div class="interests-label">BEYOND THE BACKEND</div>
+          <p class="interests-copy">When I'm not architecting distributed systems or diving deep into backend internals, you'll find me playing chess, following cricket, gaming, or reading books — always curious, always learning.</p>
+          <div class="interest-tags">
+            <span class="interest-tag">♟ Chess</span>
+            <span class="interest-tag">🏏 Cricket</span>
+            <span class="interest-tag">⚽ Football</span>
+            <span class="interest-tag">🎮 Gaming</span>
+            <span class="interest-tag">📚 Reading</span>
           </div>
         </div>
+
       </div>
 
       <div class="code-block">
@@ -978,11 +1039,11 @@
         <span class="code-kw">public class</span> <span class="code-fn">MayankGupta</span> {<br><br>
         &nbsp;&nbsp;<span class="code-kw">private final</span> String role =<br>
         &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Senior Backend Engineer"</span>;<br><br>
-        &nbsp;&nbsp;<span class="code-num">3.9</span><span class="code-cm">+ // years of experience</span><br><br>
+        &nbsp;&nbsp;<span class="code-num">4</span><span class="code-cm">+ // years of experience</span><br><br>
         &nbsp;&nbsp;<span class="code-kw">private final</span> String[] loves = {<br>
         &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Microservices"</span>,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Kafka Streams"</span>,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Clean Architecture"</span>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Secure Payments"</span>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Reliable Systems"</span>,<br>
         &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"TDD"</span><br>
         &nbsp;&nbsp;};<br><br>
         &nbsp;&nbsp;<span class="code-ann">@Override</span><br>
@@ -1007,6 +1068,33 @@
       <div class="section-line"></div>
     </div>
     <div class="skills-grid">
+      <div class="skill-category">
+        <div class="skill-cat-title">PAYMENTS &amp; AUTHENTICATION</div>
+        <div class="skill-tags">
+          <span class="skill-tag core">EMV 3-D Secure (3DS2)</span>
+          <span class="skill-tag hot">3DS Server</span>
+          <span class="skill-tag hot">Visa Payment Passkey (FIDO)</span>
+          <span class="skill-tag hot">OOB Authentication</span>
+          <span class="skill-tag">Visa · Mastercard · RuPay · Amex</span>
+          <span class="skill-tag core">Card Tokenization</span>
+          <!-- <span class="skill-tag">CoFT / Network Tokens</span> -->
+          <span class="skill-tag">Payment Analytics</span>
+        </div>
+      </div>
+
+      <!-- LANGUAGES -->
+      <div class="skill-category">
+        <div class="skill-cat-title">LANGUAGES</div>
+        <div class="skill-tags">
+          <span class="skill-tag core">Java</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag hot">SQL</span>
+          <span class="skill-tag">Bash</span>
+          <!-- <span class="skill-tag">JavaScript</span> -->
+        </div>
+      </div>
+
       <!-- BACKEND & ARCHITECTURE (MOST IMPORTANT) -->
       <div class="skill-category">
         <div class="skill-cat-title">BACKEND & ARCHITECTURE</div>
@@ -1027,8 +1115,9 @@
         <div class="skill-cat-title">MESSAGING & STREAMING</div>
         <div class="skill-tags">
           <span class="skill-tag hot">Kafka</span>
-          <span class="skill-tag">RabbitMQ</span>
           <span class="skill-tag">Event Streaming</span>
+          <span class="skill-tag">Idempotency</span>
+          <span class="skill-tag">Consumer Lag Management</span>
         </div>
       </div>
 
@@ -1038,13 +1127,13 @@
         <div class="skill-tags">
           <span class="skill-tag core">Spring Boot</span>
           <span class="skill-tag core">Spring Cloud</span>
+          <span class="skill-tag hot">Hibernate</span>
           <span class="skill-tag">Spring Security</span>
           <span class="skill-tag">Spring Data JPA</span>
-          <span class="skill-tag">Hibernate</span>
           <span class="skill-tag">OAuth2 / JWT</span>
-          <span class="skill-tag">Spring Cloud Gateway</span>
+          <span class="skill-tag">Spring MVC</span>
           <span class="skill-tag">Resilience4j</span>
-          <span class="skill-tag">JavaCC</span>
+          <!-- <span class="skill-tag">Vert.x</span> -->
         </div>
       </div>
 
@@ -1057,8 +1146,7 @@
           <span class="skill-tag hot">Redis (Caching)</span>
           <span class="skill-tag">MongoDB</span>
           <span class="skill-tag">Oracle SQL</span>
-          <span class="skill-tag">H2</span>
-          <span class="skill-tag">DB2</span>
+          <span class="skill-tag">ClickHouse</span>
         </div>
       </div>
 
@@ -1073,18 +1161,23 @@
           <span class="skill-tag">Linux</span>
           <span class="skill-tag">Grafana</span>
           <span class="skill-tag">Prometheus</span>
-          <span class="skill-tag">OpenTelemetry</span>
-          <span class="skill-tag">Liquibase</span>
+          <span class="skill-tag">Jenkins</span>
+          <span class="skill-tag">Nginx</span>
+          <span class="skill-tag">Cloudflare</span>
+          <!-- <span class="skill-tag">Kibana / ELK</span> -->
         </div>
       </div>
 
-      <!-- LANGUAGES -->
       <div class="skill-category">
-        <div class="skill-cat-title">LANGUAGES</div>
+        <div class="skill-cat-title">SECURITY &amp; COMPLIANCE</div>
         <div class="skill-tags">
-          <span class="skill-tag core">Java</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">SQL</span>
+          <span class="skill-tag hot">PCI-DSS</span>
+          <span class="skill-tag core">Spring Security</span>
+          <span class="skill-tag core">OAuth2 / JWT</span>
+          <span class="skill-tag">JWE / JOSE</span>
+          <span class="skill-tag">SAST / DAST / SBOM</span>
+          <span class="skill-tag">Rate Limiting</span>
+          <span class="skill-tag">PII &amp; Data Privacy</span>
         </div>
       </div>
 
@@ -1098,6 +1191,7 @@
           <span class="skill-tag hot">Git / GitHub</span>
           <span class="skill-tag">TDD</span>
           <span class="skill-tag">Maven</span>
+          <span class="skill-tag">Gradle</span>
           <span class="skill-tag">Postman</span>
           <span class="skill-tag">Swagger / OpenAPI</span>
         </div>
@@ -1127,8 +1221,11 @@
         <div class="exp-company">PayU Digital Labs Pvt. Ltd.</div>
         <div class="exp-role">Software Engineer</div>
         <ul class="exp-achievements">
-          <li>Developing backend services for the <strong>Token Vault platform</strong>, managing secure token lifecycle for card transactions across merchant and payment aggregator integrations.</li>
-          <li>Building high-throughput fintech infrastructure using <strong>Java · Spring Boot · Kafka · Kubernetes</strong> in a distributed, high-availability environment.</li>
+          <li>Designed and implemented <strong>Visa Payment Passkey (FIDO)</strong> flows for a 3DS Server and payment-gateway card capture, covering registration and recurring payments.</li>
+          <li>Delivered <strong>FlashPay tokenized-payment integration</strong> across three services and co-authored the EMV 3DS Express Pay V3 API specification for partner-bank integration.</li>
+          <li>Built <strong>ClickHouse + Metabase</strong> payment-success analytics across <strong style="color:var(--neon2)">10 partner-bank estates</strong>, exposing merchant, aggregator, and error-code breakdowns at a measured <strong>182 TPS</strong> peak.</li>
+          <li>Remediated <strong>132 vulnerabilities to a zero-vulnerability state</strong> in a PCI-DSS-regulated Spring Boot service and drove rate limiting across Nginx, firewall, and Cloudflare layers.</li>
+          <li>Supported production rollout and incident response across <strong>6 environments, 10 partner banks, and primary/DR data centres</strong> with my lead and team.</li>
         </ul>
       </div>
 
@@ -1140,14 +1237,45 @@
         <div class="exp-role">Senior Software Engineer</div>
         <ul class="exp-achievements">
           <li>Designed <strong>10+ RESTful APIs</strong> serving <strong>50,000+ daily transactions</strong> with 99.95% uptime across enterprise deployments.</li>
-          <li>Led a <strong>5-developer Scrum team</strong> delivering End-of-Day reporting for HDFC Bank — decoupled DataLoad job with Oracle-level parallel execution, <strong>cutting report generation time by 80%</strong>.</li>
-          <li>Built Kafka-based <strong>event & notification mechanisms</strong> in HCL UnO to automate job/jobstream workflows at scale.</li>
-          <li>Introduced <strong>PostgreSQL support in HWA</strong> (40% SQL compatibility boost, 200+ tables) + <strong>MongoDB-based workflows</strong> processing 10,000+ documents daily in HCL Universal Orchestrator.</li>
-          <li>Migrated billing pipeline to REST API, <strong>reducing processing time by 45%</strong> and eliminating legacy bottlenecks.</li>
-          <li>Established <strong>CI/CD pipelines</strong> with Jenkins + Docker — deployment time slashed from 2 hrs → 20 min (<strong>6x faster</strong>).</li>
-          <li>Resolved <strong>350+ production defects</strong> maintaining 99.9% stability across globally deployed environments.</li>
+          <li>Led a <strong>five-engineer team</strong> re-architecting HDFC Bank's End-of-Day reporting pipeline with Oracle SQL optimization and parallel execution, <strong>cutting report generation time by 80%</strong>.</li>
+          <li>Engineered Kafka event-driven orchestration that automated <strong>100% of manual job and job-stream triggers</strong>, reaching 150,000+ events/day with zero message loss.</li>
+          <li>Reduced <strong>peak consumer lag from ~3,000</strong> to <strong>&lt;200 messages</strong> under load through operational and consumer-flow improvements.</li>
+          <li>Established <strong>Jenkins + Docker CI/CD</strong>, reducing release cycles from <strong>2 hours</strong> to <strong>20 minutes</strong>; sustained <strong>99.9% stability</strong> with <strong>85%+ test coverage</strong> and <strong>350+ resolved defects</strong>.</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag">// 04</div>
+      <h2 class="section-title">education</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="edu-grid">
+      <article class="edu-card">
+        <div class="edu-icon" aria-hidden="true">🎓</div>
+        <div>
+          <div class="edu-degree">M.TECH · 2020–2022</div>
+          <div class="edu-school">National Institute of Technology, Warangal</div>
+          <div class="edu-program">Construction Technology &amp; Management</div>
+          <span class="edu-gpa">GPA 8.07 / 10.0</span>
+        </div>
+      </article>
+      <article class="edu-card">
+        <div class="edu-icon" aria-hidden="true">🏫</div>
+        <div>
+          <div class="edu-degree">B.TECH · 2016–2020</div>
+          <div class="edu-school">NSUT West Campus (GEC Delhi - GGSIPU), New Delhi</div>
+          <div class="edu-program">Civil Engineering</div>
+          <span class="edu-gpa">GPA 8.40 / 10.0</span>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -1158,7 +1286,7 @@
 <section id="projects">
   <div class="section-wrap">
     <div class="section-header">
-      <div class="section-tag">// 04</div>
+      <div class="section-tag">// 05</div>
       <h2 class="section-title">projects</h2>
       <div class="section-line"></div>
     </div>
@@ -1171,9 +1299,9 @@
             <span style="font-size:0.6rem;color:var(--text3);background:var(--card2);border:1px solid var(--border);padding:0.15rem 0.55rem;border-radius:4px;">2024</span>
           </div>
           <p class="project-desc">
-            A proof-of-concept banking microservices application with 3 core services (Cards, Loans, Accounts),
-            Gateway Server, and Config Server. Features end-to-end security via Spring Security & OAuth2 JWT,
-            containerized on Docker Hub with 95%+ test coverage using JUnit & Mockito.
+            A cloud-native banking platform that separates Cards, Loans, and Accounts behind an API Gateway,
+            Config Server, and service discovery. The focus: secure service-to-service access with OAuth2 JWT,
+            deployable Docker packaging, API documentation, and 95%+ automated test coverage.
           </p>
         </div>
         <div class="project-tech">
@@ -1218,11 +1346,50 @@
 
 <div class="section-divider"></div>
 
+<!-- SYSTEM THINKING -->
+<section id="system-thinking">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag">// 06</div>
+      <h2 class="section-title">how I design systems</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="philosophy" style="margin-top:-1.5rem;">
+      <div class="philosophy-label">HOW I THINK</div>
+      <p>I enjoy turning complex operational problems into dependable systems: clear contracts, instrumented services, careful failure modes, and pragmatic automation.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem;">
+      <div class="project-card">
+        <div class="project-icon">↗</div>
+        <div class="project-name">Design for the unhappy path</div>
+        <p class="project-desc">I make failure modes explicit: idempotent operations, guarded retries, rate limits, circuit breakers, and clear ownership at service boundaries.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">◉</div>
+        <div class="project-name">Make production observable</div>
+        <p class="project-desc">Structured audit trails, correlated logs, dashboards, and actionable alerts turn a production symptom into a diagnosis rather than a guessing exercise.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">⌁</div>
+        <div class="project-name">Scale with the workload</div>
+        <p class="project-desc">For asynchronous flows, I use event-driven patterns and measure throughput, lag, and error profiles before changing capacity or topology.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">⌘</div>
+        <div class="project-name">Secure the full path</div>
+        <p class="project-desc">In payments, defense spans application code, identity, encryption, secrets, network controls, and release governance—not a single security check.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
 <!-- ACHIEVEMENTS -->
 <section id="achievements">
   <div class="section-wrap">
     <div class="section-header">
-      <div class="section-tag">// 05</div>
+      <div class="section-tag">// 07</div>
       <h2 class="section-title">achievements</h2>
       <div class="section-line"></div>
     </div>
@@ -1254,7 +1421,7 @@
 <section id="courses">
   <div class="section-wrap">
     <div class="section-header">
-      <div class="section-tag">// 06</div>
+      <div class="section-tag">// 08</div>
       <h2 class="section-title">courses & certs</h2>
       <div class="section-line"></div>
     </div>
@@ -1276,8 +1443,8 @@
       <div class="course-card">
         <div class="course-provider">Udemy</div>
         <div class="course-name">Master Microservices with Spring Boot, Docker &amp; Kubernetes</div>
-        <div class="course-cert">In Progress</div>
-        <span class="cert-ongoing">In Progress</span>
+        <div class="course-date">Mar 2026</div>
+        <div class="course-cert">Certified</div>
       </div>
       <div class="course-card">
         <div class="course-provider">Udemy</div>
@@ -1309,14 +1476,14 @@
 <section id="contact">
   <div class="section-wrap">
     <div class="section-header">
-      <div class="section-tag">// 07</div>
+      <div class="section-tag">// 09</div>
       <h2 class="section-title">contact</h2>
       <div class="section-line"></div>
     </div>
 
     <div class="resume-banner">
       <div class="resume-banner-text">
-        <strong>↓ Resume available for download</strong> — updated with latest experience at PayU Digital Labs
+        <strong>↓ Resume available for download</strong> — contact me for the current Big Tech or FinTech/Payments version
       </div>
       <a href="https://mayank-portfolio-backend.onrender.com/api/resume/download" class="btn-primary" style="font-size:0.72rem;padding:0.6rem 1.25rem;">download resume</a>
     </div>
@@ -1329,23 +1496,23 @@
           Drop me a message — I reply within 24 hours.
         </p>
         <div class="contact-detail">
-          <div class="contact-detail-icon">✉</div>
+          <div class="contact-detail-icon"><svg class="contact-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></div>
           <a id="email-link" class="contact-detail" style="color:var(--text)">ce.mayank8@gmail.com</a>
         </div>
         <div class="contact-detail">
-          <div class="contact-detail-icon">GH</div>
+          <div class="contact-detail-icon"><img class="brand-icon" src="https://cdn.simpleicons.org/github/00d8ff" alt="" aria-hidden="true"></div>
           <a href="https://github.com/mayankSystems" target="_blank">github.com/mayankSystems</a>
         </div>
         <div class="contact-detail">
-          <div class="contact-detail-icon">LI</div>
+          <div class="contact-detail-icon"><svg class="social-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V8.99h3.41v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.26 2.37 4.26 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm-1.78 13.02h3.56V8.99H3.56v11.46Z"/></svg></div>
           <a href="https://linkedin.com/in/mayanksystems" target="_blank">linkedin.com/in/mayanksystems</a>
         </div>
         <div class="contact-detail">
-          <div class="contact-detail-icon">LC</div>
+          <div class="contact-detail-icon"><img class="brand-icon" src="https://cdn.simpleicons.org/leetcode/00d8ff" alt="" aria-hidden="true"></div>
           <a href="https://leetcode.com/u/mayankSystems/" target="_blank">leetcode.com/u/mayankSystems</a>
         </div>
         <div class="contact-detail">
-          <div class="contact-detail-icon">HR</div>
+          <div class="contact-detail-icon"><img class="brand-icon" src="https://cdn.simpleicons.org/hackerrank/00d8ff" alt="" aria-hidden="true"></div>
           <a href="https://www.hackerrank.com/profile/dev_mayank8" target="_blank">hackerrank.com/dev_mayank8</a>
         </div>
         <div class="contact-detail">
@@ -1479,7 +1646,7 @@
   });
 
   // Typing effect for hero
-  const titles = ['Senior Backend Engineer', 'Java Microservices Architect', 'Distributed Systems Builder', 'Kafka & Spring Boot Dev'];
+  const titles = ['Backend Engineer · Payments', 'Secure 3DS2 Platform Builder', 'Distributed Systems Engineer', 'Java · Spring Boot · Kafka'];
   let ti = 0, ci = 0, isDeleting = false;
   const el = document.querySelector('.hero-title');
   if (el) {
