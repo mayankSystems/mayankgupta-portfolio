@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzBhMGUxNCIvPgogIDxyZWN0IHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgcng9IjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwZDhmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8dGV4dCB4PSIxNiIgeT0iMjEiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSJib2xkIiAKICAgICAgICBmaWxsPSIjMDBkOGZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NRzwvdGV4dD4KPC9zdmc+" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0a0e14">
+<script>
+  (function () {
+    document.documentElement.classList.add('js');
+    try {
+      var theme = localStorage.getItem('theme');
+      document.documentElement.dataset.theme = (theme === 'light' || theme === 'dark') ? theme : 'dark';
+    } catch (error) {
+      document.documentElement.dataset.theme = 'dark';
+    }
+  })();
+</script>
 <!-- ========================= -->
 <!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
 <!-- ========================= -->
@@ -12,7 +25,7 @@
 <meta property="og:image" content="https://mayankgupta-portfolio.vercel.app/og-image.png?v=2" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Mayank Gupta - Senior Backend Engineer Portfolio" />
+<meta property="og:image:alt" content="Mayank Gupta - Backend Engineer Portfolio" />
 <meta property="og:url" content="https://mayankgupta-portfolio.vercel.app" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Mayank Gupta Portfolio" />
@@ -35,36 +48,94 @@
 <meta name="keywords" content="Mayank Gupta, Backend Engineer, Java, Spring Boot, Payments, 3DS2, PCI-DSS, Kafka, Distributed Systems, PayU" />
 <meta name="author" content="Mayank Gupta" />
 <title>Mayank Gupta | Backend Engineer — Payments & Distributed Systems</title>
+<link rel="canonical" href="https://mayankgupta-portfolio.vercel.app/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mayank Gupta",
+  "url": "https://mayankgupta-portfolio.vercel.app/",
+  "jobTitle": "Backend Engineer",
+  "email": "mailto:ce.mayank8@gmail.com",
+  "sameAs": [
+    "https://github.com/mayankSystems",
+    "https://linkedin.com/in/mayanksystems",
+    "https://leetcode.com/u/mayankSystems/"
+  ],
+  "knowsAbout": ["Java", "Spring Boot", "Distributed Systems", "EMV 3-D Secure", "Payments", "Apache Kafka"]
+}
+</script>
 <style>
-  :root {
-    --bg: #0a0e14;
-    --bg2: #0d1117;
-    --bg3: #141b23;
-    --card: #111720;
-    --card2: #161e28;
-    --border: #1e2d3d;
-    --border2: #243447;
-    --neon: #00d8ff;
-    --neon2: #00ff9d;
-    --neon3: #7c3aed;
-    --text: #cdd6e0;
-    --text2: #8899aa;
-    --text3: #556677;
-    --accent: #ff6b35;
-    --gold: #fbbf24;
-    --mono: 'JetBrains Mono', monospace;
-    --sans: 'Syne', sans-serif;
+  :root,
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg:#0a0e14; --bg2:#0d1117; --bg3:#141b23;
+    --card:#111720; --card2:#161e28;
+    --border:#1e2d3d; --border2:#2b4057;
+    --heading:#ffffff;
+    --text:#cdd6e0; --text2:#9aabbb; --text3:#7a8b9c;
+    --neon:#00d8ff; --neon-rgb:0,216,255;
+    --neon2:#00ff9d; --neon2-rgb:0,255,157;
+    --neon3:#7c3aed; --neon3-rgb:124,58,237;
+    --violet:#a78bfa; --violet-text:#e2d8ff;
+    --accent:#ff6b35; --accent-rgb:255,107,53;
+    --gold:#fbbf24; --gold-rgb:251,191,36; --gold-text:#f7d674;
+    --on-accent:#0a0e14;
+    --nav-bg:rgba(10,14,20,.85);
+    --grid-line:#1e2d3d; --grid-opacity:.3;
+    --shadow:0 8px 24px rgba(0,0,0,.35);
+    --code-kw:#cc99cd; --code-str:#7ec699; --code-num:#f08d49; --code-fn:#6fb3d2;
+    --fs-xs:.75rem; --fs-sm:.875rem; --fs-base:1rem; --fs-lg:1.125rem; --fs-xl:1.5rem;
+    --fs-h2:clamp(1.75rem,3vw,2.25rem); --fs-h1:clamp(2.4rem,5.5vw,4.25rem);
+    --mono:'JetBrains Mono', monospace;
+    --sans:'Syne', sans-serif;
+    --body:'Inter', system-ui, sans-serif;
   }
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --bg:#f6f8fb; --bg2:#eef2f7; --bg3:#e6ecf3;
+    --card:#ffffff; --card2:#f1f5f9;
+    --border:#d8e0ea; --border2:#bfccdb;
+    --heading:#0b1320;
+    --text:#1c2733; --text2:#46586a; --text3:#5b6b7b;
+    --neon:#0369a1; --neon-rgb:3,105,161;
+    --neon2:#047857; --neon2-rgb:4,120,87;
+    --neon3:#6d28d9; --neon3-rgb:109,40,217;
+    --violet:#6d28d9; --violet-text:#4c1d95;
+    --accent:#c2410c; --accent-rgb:194,65,12;
+    --gold:#a16207; --gold-rgb:161,98,7; --gold-text:#854d0e;
+    --on-accent:#ffffff;
+    --nav-bg:rgba(246,248,251,.85);
+    --grid-line:#d8e0ea; --grid-opacity:.55;
+    --shadow:0 8px 24px rgba(15,23,42,.08);
+    --code-kw:#7c3aed; --code-str:#047857; --code-num:#c2410c; --code-fn:#0369a1;
+  }
+  :root[data-theme="light"] .terminal-prompt::before,
+  :root[data-theme="light"] .exp-item::before { box-shadow:0 0 0 3px rgba(var(--neon-rgb),.18); }
+  :root[data-theme="light"] .skill-tag.hot { background:rgba(var(--neon2-rgb),.10); }
+  :root[data-theme="light"] .skill-tag.core { background:rgba(var(--neon-rgb),.10); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  :focus-visible { outline:2px solid var(--neon); outline-offset:3px; border-radius:4px; }
+  .skip { position:fixed; top:0.75rem; left:0.75rem; z-index:1000; padding:0.65rem 0.9rem; border-radius:6px; background:var(--neon); color:var(--on-accent); font:500 var(--fs-sm) var(--mono); text-decoration:none; transform:translateY(-160%); transition:transform .2s; }
+  .skip:focus { transform:translateY(0); }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow); }
+  .card--interactive { transition:border-color .2s,transform .2s,box-shadow .2s; }
+  .card--interactive:hover { border-color:var(--border2); transform:translateY(-3px); }
+  html:not(.js) .fade-in { opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+  }
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: var(--mono);
+    font-family: var(--body);
+    font-size:var(--fs-base);
     overflow-x: hidden;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   /* SCROLLBAR */
@@ -78,10 +149,10 @@
     position: fixed;
     inset: 0;
     background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
     background-size: 40px 40px;
-    opacity: 0.3;
+    opacity: var(--grid-opacity);
     pointer-events: none;
     z-index: 0;
   }
@@ -96,7 +167,7 @@
     justify-content: space-between;
     padding: 0 2.5rem;
     height: 60px;
-    background: rgba(10, 14, 20, 0.85);
+    background: var(--nav-bg);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
@@ -109,6 +180,7 @@
     text-decoration: none;
   }
   .nav-logo span { color: var(--neon2); }
+  .nav-right { display:flex; align-items:center; gap:0.6rem; }
   .nav-links { display: flex; gap: 0.25rem; }
   .nav-links a {
     color: var(--text2);
@@ -125,6 +197,18 @@
     border-color: var(--border2);
     background: rgba(0,216,255,0.05);
   }
+  .nav-links a.active { color:var(--neon); border-color:var(--border2); background:rgba(0,216,255,0.05); }
+  .nav-burger { display:none; width:38px; height:38px; padding:0; border:1px solid var(--border2); border-radius:6px; background:var(--card); cursor:pointer; }
+  .nav-burger span { display:block; width:16px; height:1px; margin:4px auto; background:var(--text2); transition:transform .2s,opacity .2s; }
+  .nav-burger[aria-expanded="true"] span:nth-child(1) { transform:translateY(5px) rotate(45deg); }
+  .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+  .nav-burger[aria-expanded="true"] span:nth-child(3) { transform:translateY(-5px) rotate(-45deg); }
+  .theme-toggle { width:38px; height:38px; display:grid; place-items:center; border:1px solid var(--border2); border-radius:8px; background:var(--card); color:var(--text2); cursor:pointer; transition:border-color .2s,color .2s; }
+  .theme-toggle:hover { border-color:var(--neon); color:var(--neon); }
+  .theme-toggle svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  :root[data-theme="dark"] .icon-sun { display:none; }
+  :root[data-theme="light"] .icon-moon { display:none; }
+  .theme-anim, .theme-anim * { transition:background-color .3s,color .3s,border-color .3s,fill .3s !important; }
 
   /* HERO */
   #hero {
@@ -167,10 +251,14 @@
     font-weight: 800;
     line-height: 1.05;
     letter-spacing: -0.03em;
-    color: #fff;
+    color: var(--heading);
     margin-bottom: 0.5rem;
   }
   .hero-name .neon { color: var(--neon); }
+  .eyebrow { font:500 var(--fs-xs) var(--mono); letter-spacing:.1em; color:var(--text3); margin-bottom:1rem; text-transform:uppercase; }
+  .hero-h1 { font-family:var(--sans); font-size:var(--fs-h1); font-weight:800; line-height:1.08; letter-spacing:-.035em; color:var(--heading); max-width:720px; margin-bottom:1.25rem; }
+  .hero-h1 .grad { color:var(--neon); }
+  .hero-sub { max-width:650px; color:var(--text2); font-size:var(--fs-lg); line-height:1.7; margin-bottom:2rem; }
   .hero-title {
     font-size: 0.9rem;
     color: var(--neon2);
@@ -190,12 +278,17 @@
   }
   .hero-bio .highlight { color: var(--neon); }
   .hero-stats {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2.5rem;
-    flex-wrap: wrap;
+    display:grid;
+    grid-template-columns:repeat(4, minmax(0, 1fr));
+    margin:0 0 2.5rem;
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--card);
   }
-  .stat-item { text-align: left; }
+  .stat-item { min-width:0; padding:1rem 1.1rem; border-right:1px solid var(--border); }
+  .stat-item:nth-child(4n) { border-right:0; }
+  .stat-item:nth-child(n+5) { border-top:1px solid var(--border); }
   .stat-num {
     font-family: var(--sans);
     font-size: 1.8rem;
@@ -204,11 +297,22 @@
     line-height: 1;
   }
   .stat-label { font-size: 0.65rem; color: var(--text3); letter-spacing: 0.08em; margin-top: 0.2rem; }
+  .stat-source { display:block; font:400 var(--fs-xs) var(--mono); color:var(--text3); margin-top:.3rem; }
+  .architecture-card { margin:0 0 1.5rem; padding:1.25rem; overflow:hidden; }
+  .architecture-kicker { font:500 var(--fs-xs) var(--mono); letter-spacing:.1em; color:var(--neon); margin-bottom:.85rem; }
+  .architecture-diagram { display:block; width:100%; height:auto; }
+  .architecture-diagram .flow-node { fill:var(--card2); stroke:var(--border2); stroke-width:2; }
+  .architecture-diagram .flow-label { fill:var(--heading); font-family:var(--mono); font-size:14px; font-weight:500; text-anchor:middle; }
+  .architecture-diagram .flow-sub { fill:var(--text3); font-family:var(--mono); font-size:10px; text-anchor:middle; }
+  .architecture-diagram .flow-line { fill:none; stroke:var(--neon); stroke-width:2; marker-end:url(#flow-arrow); }
+  .architecture-diagram .flow-line-muted { fill:none; stroke:var(--neon2); stroke-width:1.5; stroke-dasharray:5 5; }
+  .architecture-diagram .flow-note { fill:var(--neon2); font-family:var(--mono); font-size:10px; }
+  .architecture-caption { margin-top:.8rem; color:var(--text2); font-size:var(--fs-sm); line-height:1.6; }
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn-primary {
     padding: 0.75rem 1.75rem;
     background: var(--neon);
-    color: var(--bg);
+    color: var(--on-accent);
     font-family: var(--mono);
     font-size: 0.8rem;
     font-weight: 700;
@@ -302,6 +406,18 @@
 
   /* SECTION STYLES */
   section { position: relative; z-index: 1; }
+  main { display:flex; flex-direction:column; }
+  main > .section-divider { display:none; }
+  #hero { order:1; }
+  #experience { order:2; }
+  #projects { order:3; }
+  #system-thinking { order:4; }
+  #skills { order:5; }
+  #about { order:6; }
+  #education { order:7; }
+  #achievements { order:8; }
+  #courses { order:9; }
+  #contact { order:10; }
   .section-wrap {
     max-width: 1200px;
     margin: 0 auto;
@@ -326,7 +442,7 @@
     font-family: var(--sans);
     font-size: 2rem;
     font-weight: 800;
-    color: #fff;
+    color: var(--heading);
     letter-spacing: -0.02em;
   }
   .section-line {
@@ -437,10 +553,13 @@
     font-family: var(--sans);
     font-size: 1.25rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--heading);
     margin-bottom: 0.25rem;
   }
   .exp-role { font-size: 0.8rem; color: var(--neon); margin-bottom: 1rem; }
+  .exp-details { border:1px solid var(--border); border-radius:8px; background:rgba(var(--neon-rgb),.025); padding:.15rem 1rem 1rem; }
+  .exp-details summary { cursor:pointer; color:var(--neon); font:500 var(--fs-xs) var(--mono); letter-spacing:.08em; padding:.8rem 0; }
+  .exp-details[open] summary { margin-bottom:.25rem; }
   .exp-achievements { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
   .exp-achievements li {
     font-size: 0.8rem;
@@ -503,7 +622,7 @@
     font-family: var(--sans);
     font-size: 1.1rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--heading);
   }
   .project-desc { font-size: 0.8rem; color: var(--text2); line-height: 1.7; }
   .project-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
@@ -558,7 +677,7 @@
     border-radius: 8px;
     border: 1px solid var(--border2);
   }
-  .ach-title { font-size: 0.85rem; color: #fff; font-weight: 500; margin-bottom: 0.25rem; }
+  .ach-title { font-size: 0.85rem; color: var(--heading); font-weight: 500; margin-bottom: 0.25rem; }
   .ach-sub { font-size: 0.72rem; color: var(--text3); }
   .ach-badge {
     font-size: 0.6rem;
@@ -595,7 +714,7 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
-  .course-name { font-size: 0.85rem; color: #fff; font-weight: 500; line-height: 1.4; }
+  .course-name { font-size: 0.85rem; color: var(--heading); font-weight: 500; line-height: 1.4; }
   .course-date { font-size: 0.65rem; color: var(--neon2); }
   .course-cert { display: none; }
   .course-cert::before {
@@ -648,7 +767,7 @@
     font-family: var(--sans);
     font-size: 1.75rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--heading);
     line-height: 1.2;
   }
   .contact-tagline span { color: var(--neon); }
@@ -696,7 +815,8 @@
     outline: none;
     resize: none;
   }
-  .form-input:focus, .form-textarea:focus { border-color: var(--neon); background: rgba(0,216,255,0.03); }
+  .form-input:focus, .form-textarea:focus { border-color: var(--neon); background: rgba(var(--neon-rgb),0.03); }
+  .form-input:focus-visible, .form-textarea:focus-visible { outline:none; border-color:var(--neon); box-shadow:0 0 0 3px rgba(var(--neon-rgb),.2); }
   .form-input::placeholder, .form-textarea::placeholder { color: var(--text3); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .form-submit {
@@ -740,6 +860,7 @@
   .form-status.fade-in {
     animation: fadeIn 0.3s ease-in-out;
   }
+  .form-hint { font-size:0.72rem; color:var(--text3); line-height:1.5; }
 
   @keyframes fadeIn {
     from {
@@ -822,12 +943,20 @@
   /* MOBILE */
   @media (max-width: 768px) {
     nav { padding: 0 1.25rem; }
-    .nav-links { display: none; }
+    .nav-right { flex-direction:row-reverse; }
+    .nav-burger { display:block; }
+    .nav-links { display:none; position:absolute; top:60px; left:0; right:0; padding:0.75rem 1.25rem 1rem; flex-direction:column; gap:0.25rem; background:var(--bg); border-bottom:1px solid var(--border); box-shadow:var(--shadow); }
+    .nav-links.open { display:flex; }
+    .nav-links a { padding:0.7rem 0.75rem; }
     #hero { flex-direction: column-reverse; padding: 5rem 1.25rem 3rem; gap: 2.5rem; }
     .hero-right { width: 100%; }
     .avatar-wrap { width: 180px; height: 180px; }
     .avatar-social-orbit { width:300px; height:275px; }
     .avatar-social-orbit .social-links { top:157px; transform:translateX(-50%) scale(0.84); transform-origin:top center; }
+    .hero-stats { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+    .stat-item:nth-child(4n) { border-right:1px solid var(--border); }
+    .stat-item:nth-child(2n) { border-right:0; }
+    .stat-item:nth-child(n+3) { border-top:1px solid var(--border); }
     .section-wrap { padding: 3.5rem 1.25rem; }
     .contact-wrap { grid-template-columns: 1fr; }
     .about-layout { grid-template-columns:1fr; }
@@ -893,71 +1022,90 @@
     letter-spacing: 4px;
     margin-bottom: 0.75rem;
   }
-  .code-kw { color: #cc99cd; }
-  .code-str { color: #7ec699; }
-  .code-num { color: #f08d49; }
-  .code-fn { color: #6fb3d2; }
+  .code-kw { color: var(--code-kw); }
+  .code-str { color: var(--code-str); }
+  .code-num { color: var(--code-num); }
+  .code-fn { color: var(--code-fn); }
   .code-cm { color: var(--text3); }
   .code-ann { color: var(--neon2); }
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">mayank<span>.dev</span></a>
-  <div class="nav-links">
-    <a href="#about">about</a>
-    <a href="#skills">skills</a>
-    <a href="#experience">experience</a>
-    <a href="#education">education</a>
-    <a href="#projects">projects</a>
-    <a href="#system-thinking">approach</a>
-    <a href="#achievements">achievements</a>
-    <a href="#courses">courses</a>
-    <a href="#contact">contact</a>
+  <div class="nav-right">
+    <div class="nav-links" id="navMenu">
+      <a href="#experience">work</a>
+      <a href="#projects">projects</a>
+      <a href="#system-thinking">approach</a>
+      <a href="#skills">skills</a>
+      <a href="#about">about</a>
+      <a href="#contact">contact</a>
+    </div>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg>
+    </button>
+    <button class="nav-burger" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
+<main id="main">
 <!-- HERO -->
 <section id="hero">
   <div class="hero-left">
     <div class="terminal-prompt">mayank@portfolio:~$ ./introduce.sh</div>
     <h1 class="hero-name">Hi, I'm<br><span class="neon">Mayank</span> Gupta</h1>
-    <div class="hero-title">Backend Engineer · Payments &amp; Distributed Systems</div>
-    <p class="hero-bio">
-      <span class="highlight">4+ years</span> building scalable <span class="highlight">Java microservices and distributed systems</span>—from high-throughput payment authentication to enterprise automation. Proven track record leading engineers, optimizing Kafka and data pipelines, and operating secure production platforms across <span class="highlight">10 partner banks</span>.
-    </p>
+    <div class="hero-title">Backend Engineer · Payments</div>
+    <p class="hero-bio"><span class="highlight">4+ years</span> building scalable <span class="highlight">Java microservices and distributed systems</span>—from high-throughput payment authentication to enterprise automation. Proven track record leading engineers, optimizing Kafka and data pipelines, and operating secure production platforms across <span class="highlight">10 partner banks</span>.</p>
     <div class="hero-stats">
       <div class="stat-item">
-        <div class="stat-num">4+</div>
+        <div class="stat-num" data-count="4" data-suffix="+">4+</div>
         <div class="stat-label">YEARS EXP</div>
+        <span class="stat-source">Backend engineering</span>
       </div>
       <div class="stat-item">
         <div class="stat-num">7–10M</div>
         <div class="stat-label">AUTHS / MONTH</div>
+        <span class="stat-source">PayU · 3DS2 platform</span>
       </div>
       <div class="stat-item">
-        <div class="stat-num">182</div>
+        <div class="stat-num" data-count="182">182</div>
         <div class="stat-label">PEAK TPS</div>
-      </div>
-        <div class="stat-item">
-        <div class="stat-num">350+</div>
-        <div class="stat-label">BUGS SQUASHED</div>
+        <span class="stat-source">PayU · measured</span>
       </div>
       <div class="stat-item">
-        <div class="stat-num">10</div>
+        <div class="stat-num" data-count="350" data-suffix="+">350+</div>
+        <div class="stat-label">HCL BUGS SOLVED</div>
+        <span class="stat-source">HCLSoftware</span>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="10">10</div>
         <div class="stat-label">PARTNER BANKS</div>
+        <span class="stat-source">PayU · 3DS2</span>
       </div>
       <div class="stat-item">
-        <div class="stat-num">6</div>
+        <div class="stat-num" data-count="6">6</div>
         <div class="stat-label">ENVIRONMENTS</div>
+        <span class="stat-source">PayU · operations</span>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="50" data-suffix="K+">50K+</div>
+        <div class="stat-label">DAILY TRANSACTIONS</div>
+        <span class="stat-source">HCL · 99.95% uptime</span>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="80" data-suffix="%">80%</div>
+        <div class="stat-label">FASTER EOD REPORTS</div>
+        <span class="stat-source">HCL · HDFC pipeline</span>
       </div>
     </div>
     <div class="hero-btns">
-      <a href="#contact" class="btn-primary">get in touch</a>
-      <a href="#projects" class="btn-outline">view projects</a>
-      <a href="https://mayank-portfolio-backend.onrender.com/api/resume/download" class="btn-outline" id="resume-dl">↓ resume</a>
+      <a href="#contact" class="btn-primary">contact me</a>
+      <a href="#projects" class="btn-outline">view work</a>
     </div>
   </div>
 
@@ -966,7 +1114,7 @@
       <div class="avatar-wrap">
         <div class="avatar-border"></div>
         <div class="avatar-inner">
-          <img src="photo.png" alt="Mayank Gupta" onerror="this.style.display='none';this.parentNode.innerHTML='<div style=\'font-family:var(--sans);font-size:3rem;font-weight:800;color:var(--neon)\'>MG</div>'">
+          <img src="photo.png" alt="Mayank Gupta" width="240" height="240" fetchpriority="high" decoding="async" onerror="this.style.display='none';this.parentNode.innerHTML='<div style=\'font-family:var(--sans);font-size:3rem;font-weight:800;color:var(--neon)\'>MG</div>'">
         </div>
         <div class="avatar-badge">● OPEN TO WORK</div>
       </div>
@@ -987,7 +1135,7 @@
 <section id="about">
   <div class="section-wrap">
     <div class="section-header">
-      <div class="section-tag">// 01</div>
+      <div class="section-tag">// 06</div>
       <h2 class="section-title">about me</h2>
       <div class="section-line"></div>
     </div>
@@ -1006,14 +1154,6 @@
             <div class="about-eyebrow" style="color:var(--neon2);">PAYU DIGITAL LABS · PAYMENTS PLATFORM</div>
             <p>I work on <strong style="color:var(--neon2);">EMV 3-D Secure (3DS2) authentication and payment integrations</strong>, delivering tokenized-payment and Visa Payment Passkey flows, success-rate analytics, PCI-DSS remediation, and rollout support.</p>
           </div>
-        </div>
-        <div class="scope-panel">
-          <div class="scope-stats">
-            <div class="scope-stat"><div class="scope-num">10</div><div class="scope-label">PARTNER BANKS</div></div>
-            <div class="scope-stat"><div class="scope-num">5 + 1</div><div class="scope-label">DEDICATED + MULTI-TENANT</div></div>
-            <div class="scope-stat"><div class="scope-num">6</div><div class="scope-label">ENVIRONMENTS</div></div>
-          </div>
-          <p class="scope-detail">I help operate dedicated environments for <strong style="color:var(--text2);">SBI, Axis, Mega, and ICICI</strong>. HDFC operates its own dedicated estate. Our multi-tenant environment supports <strong style="color:var(--text2);">YES, Airtel Payments Bank, Seylan, Dialog Finance, and Interswitch</strong>.</p>
         </div>
         <div class="about-story-card previous">
           <div class="about-eyebrow" style="color:#a78bfa;">PREVIOUSLY · HCLSOFTWARE</div>
@@ -1063,7 +1203,7 @@
 <section id="skills">
   <div class="section-wrap">
     <div class="section-header">
-      <div class="section-tag">// 02</div>
+      <div class="section-tag">// 05</div>
       <h2 class="section-title">tech stack</h2>
       <div class="section-line"></div>
     </div>
@@ -1207,7 +1347,7 @@
 <section id="experience">
   <div class="section-wrap">
     <div class="section-header">
-      <div class="section-tag">// 03</div>
+      <div class="section-tag">// 02</div>
       <h2 class="section-title">experience</h2>
       <div class="section-line"></div>
     </div>
@@ -1220,13 +1360,16 @@
         </div>
         <div class="exp-company">PayU Digital Labs Pvt. Ltd.</div>
         <div class="exp-role">Software Engineer</div>
-        <ul class="exp-achievements">
+        <details class="exp-details" open>
+          <summary>KEY OUTCOMES</summary>
+          <ul class="exp-achievements">
           <li>Designed and implemented <strong>Visa Payment Passkey (FIDO)</strong> flows for a 3DS Server and payment-gateway card capture, covering registration and recurring payments.</li>
           <li>Delivered <strong>FlashPay tokenized-payment integration</strong> across three services and co-authored the EMV 3DS Express Pay V3 API specification for partner-bank integration.</li>
           <li>Built <strong>ClickHouse + Metabase</strong> payment-success analytics across <strong style="color:var(--neon2)">10 partner-bank estates</strong>, exposing merchant, aggregator, and error-code breakdowns at a measured <strong>182 TPS</strong> peak.</li>
           <li>Remediated <strong>132 vulnerabilities to a zero-vulnerability state</strong> in a PCI-DSS-regulated Spring Boot service and drove rate limiting across Nginx, firewall, and Cloudflare layers.</li>
           <li>Supported production rollout and incident response across <strong>6 environments, 10 partner banks, and primary/DR data centres</strong> with my lead and team.</li>
-        </ul>
+          </ul>
+        </details>
       </div>
 
       <div class="exp-item old">
@@ -1235,13 +1378,16 @@
         </div>
         <div class="exp-company">HCLSoftware</div>
         <div class="exp-role">Senior Software Engineer</div>
-        <ul class="exp-achievements">
+        <details class="exp-details">
+          <summary>KEY OUTCOMES</summary>
+          <ul class="exp-achievements">
           <li>Designed <strong>10+ RESTful APIs</strong> serving <strong>50,000+ daily transactions</strong> with 99.95% uptime across enterprise deployments.</li>
           <li>Led a <strong>five-engineer team</strong> re-architecting HDFC Bank's End-of-Day reporting pipeline with Oracle SQL optimization and parallel execution, <strong>cutting report generation time by 80%</strong>.</li>
           <li>Engineered Kafka event-driven orchestration that automated <strong>100% of manual job and job-stream triggers</strong>, reaching 150,000+ events/day with zero message loss.</li>
           <li>Reduced <strong>peak consumer lag from ~3,000</strong> to <strong>&lt;200 messages</strong> under load through operational and consumer-flow improvements.</li>
           <li>Established <strong>Jenkins + Docker CI/CD</strong>, reducing release cycles from <strong>2 hours</strong> to <strong>20 minutes</strong>; sustained <strong>99.9% stability</strong> with <strong>85%+ test coverage</strong> and <strong>350+ resolved defects</strong>.</li>
-        </ul>
+          </ul>
+        </details>
       </div>
     </div>
   </div>
@@ -1253,7 +1399,7 @@
 <section id="education">
   <div class="section-wrap">
     <div class="section-header">
-      <div class="section-tag">// 04</div>
+      <div class="section-tag">// 07</div>
       <h2 class="section-title">education</h2>
       <div class="section-line"></div>
     </div>
@@ -1286,11 +1432,30 @@
 <section id="projects">
   <div class="section-wrap">
     <div class="section-header">
-      <div class="section-tag">// 05</div>
+      <div class="section-tag">// 03</div>
       <h2 class="section-title">projects</h2>
       <div class="section-line"></div>
     </div>
     <div class="projects-grid">
+      <article class="project-card case-study">
+        <div class="project-icon">🔐</div>
+        <div>
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <div class="project-name">3DS2 Authentication Platform</div>
+            <span style="font-size:0.6rem;color:var(--text3);background:var(--card2);border:1px solid var(--border);padding:0.15rem 0.55rem;border-radius:4px;">PAYU · 2026</span>
+          </div>
+          <p class="project-desc"><strong style="color:var(--neon);">Problem:</strong> Safely operate and improve card-authentication capabilities across regulated, multi-environment bank integrations.</p>
+          <p class="project-desc"><strong style="color:var(--neon2);">Approach:</strong> Delivered passkey and tokenized-payment flows, success-rate analytics, observability, security remediation, and release support across 10 partner banks.</p>
+          <p class="project-desc"><strong style="color:var(--gold);">Impact:</strong> Measured 182 TPS peak visibility, standardized operational insight, and strengthened the security posture of a PCI-DSS-regulated service.</p>
+        </div>
+        <div class="project-tech">
+          <span class="tech-badge">Java</span>
+          <span class="tech-badge">Spring Boot</span>
+          <span class="tech-badge">3DS2</span>
+          <span class="tech-badge">ClickHouse</span>
+          <span class="tech-badge">Grafana</span>
+        </div>
+      </article>
       <div class="project-card">
         <div class="project-icon">🏦</div>
         <div>
@@ -1350,13 +1515,41 @@
 <section id="system-thinking">
   <div class="section-wrap">
     <div class="section-header">
-      <div class="section-tag">// 06</div>
+      <div class="section-tag">// 04</div>
       <h2 class="section-title">how I design systems</h2>
       <div class="section-line"></div>
     </div>
     <div class="philosophy" style="margin-top:-1.5rem;">
       <div class="philosophy-label">HOW I THINK</div>
       <p>I enjoy turning complex operational problems into dependable systems: clear contracts, instrumented services, careful failure modes, and pragmatic automation.</p>
+    </div>
+    <div class="architecture-card card">
+      <div class="architecture-kicker">// REQUEST LIFECYCLE · A SIMPLIFIED VIEW</div>
+      <svg class="architecture-diagram" viewBox="0 0 900 260" role="img" aria-labelledby="architecture-title architecture-description">
+        <title id="architecture-title">Resilient event-driven request lifecycle</title>
+        <desc id="architecture-description">A request moves from gateway to service to Kafka, then consumer and data store. Retry and dead-letter handling protect the asynchronous path, while observability spans the workflow.</desc>
+        <defs>
+          <marker id="flow-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="var(--neon)"></path></marker>
+        </defs>
+        <path class="flow-line" d="M150 112 H260"></path>
+        <path class="flow-line" d="M400 112 H510"></path>
+        <path class="flow-line" d="M650 112 H760"></path>
+        <rect class="flow-node" x="30" y="72" rx="12" width="120" height="80"></rect>
+        <text class="flow-label" x="90" y="104">Gateway</text><text class="flow-sub" x="90" y="126">Auth · rate limit</text>
+        <rect class="flow-node" x="260" y="72" rx="12" width="140" height="80"></rect>
+        <text class="flow-label" x="330" y="104">Service</text><text class="flow-sub" x="330" y="126">Validate · idempotency</text>
+        <rect class="flow-node" x="510" y="72" rx="12" width="140" height="80"></rect>
+        <text class="flow-label" x="580" y="104">Kafka</text><text class="flow-sub" x="580" y="126">Durable events</text>
+        <rect class="flow-node" x="760" y="72" rx="12" width="110" height="80"></rect>
+        <text class="flow-label" x="815" y="104">Consumer</text><text class="flow-sub" x="815" y="126">Process safely</text>
+        <path class="flow-line-muted" d="M580 154 V210 H700"></path>
+        <text class="flow-note" x="548" y="232">retry / DLQ</text>
+        <rect class="flow-node" x="700" y="184" rx="10" width="150" height="52"></rect>
+        <text class="flow-label" x="775" y="216">Data store</text>
+        <path class="flow-line-muted" d="M90 56 H815"></path>
+        <text class="flow-note" x="350" y="43">logs · metrics · traces · alerting</text>
+      </svg>
+      <p class="architecture-caption">The goal is not a fixed technology diagram—it is a repeatable operating model: protect the synchronous edge, make asynchronous work durable, handle failures intentionally, and expose enough signals to diagnose production behavior.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem;">
       <div class="project-card">
@@ -1389,7 +1582,7 @@
 <section id="achievements">
   <div class="section-wrap">
     <div class="section-header">
-      <div class="section-tag">// 07</div>
+      <div class="section-tag">// 08</div>
       <h2 class="section-title">achievements</h2>
       <div class="section-line"></div>
     </div>
@@ -1421,7 +1614,7 @@
 <section id="courses">
   <div class="section-wrap">
     <div class="section-header">
-      <div class="section-tag">// 08</div>
+      <div class="section-tag">// 09</div>
       <h2 class="section-title">courses & certs</h2>
       <div class="section-line"></div>
     </div>
@@ -1476,16 +1669,16 @@
 <section id="contact">
   <div class="section-wrap">
     <div class="section-header">
-      <div class="section-tag">// 09</div>
+      <div class="section-tag">// 10</div>
       <h2 class="section-title">contact</h2>
       <div class="section-line"></div>
     </div>
 
     <div class="resume-banner">
       <div class="resume-banner-text">
-        <strong>↓ Resume available for download</strong> — contact me for the current Big Tech or FinTech/Payments version
+        <strong>↓ Resume available for download</strong> — a concise overview of my backend, payments, and distributed-systems experience.
       </div>
-      <a href="https://mayank-portfolio-backend.onrender.com/api/resume/download" class="btn-primary" style="font-size:0.72rem;padding:0.6rem 1.25rem;">download resume</a>
+      <a href="resume-v3.pdf" class="btn-primary" style="font-size:0.72rem;padding:0.6rem 1.25rem;" download>download resume</a>
     </div>
 
     <div class="contact-wrap">
@@ -1497,7 +1690,7 @@
         </p>
         <div class="contact-detail">
           <div class="contact-detail-icon"><svg class="contact-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></div>
-          <a id="email-link" class="contact-detail" style="color:var(--text)">ce.mayank8@gmail.com</a>
+          <a id="email-link" style="color:var(--text)">ce.mayank8@gmail.com</a>
         </div>
         <div class="contact-detail">
           <div class="contact-detail-icon"><img class="brand-icon" src="https://cdn.simpleicons.org/github/00d8ff" alt="" aria-hidden="true"></div>
@@ -1511,42 +1704,45 @@
           <div class="contact-detail-icon"><img class="brand-icon" src="https://cdn.simpleicons.org/leetcode/00d8ff" alt="" aria-hidden="true"></div>
           <a href="https://leetcode.com/u/mayankSystems/" target="_blank">leetcode.com/u/mayankSystems</a>
         </div>
-        <div class="contact-detail">
+        <!-- <div class="contact-detail">
           <div class="contact-detail-icon"><img class="brand-icon" src="https://cdn.simpleicons.org/hackerrank/00d8ff" alt="" aria-hidden="true"></div>
           <a href="https://www.hackerrank.com/profile/dev_mayank8" target="_blank">hackerrank.com/dev_mayank8</a>
         </div>
         <div class="contact-detail">
           <div class="contact-detail-icon">📍</div>
           <span style="color:var(--text)">Bengaluru, Karnataka, India</span>
-        </div>
+        </div> -->
       </div>
 
       <form class="contact-form" id="contactForm">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">NAME</label>
-            <input type="text" class="form-input" placeholder="John Doe" required id="fname">
+            <label class="form-label" for="fname">NAME</label>
+            <input type="text" class="form-input" placeholder="John Doe" required id="fname" name="name" autocomplete="name">
           </div>
           <div class="form-group">
-            <label class="form-label">EMAIL</label>
-            <input type="email" class="form-input" placeholder="john@company.com" required id="femail">
+            <label class="form-label" for="femail">EMAIL</label>
+            <input type="email" class="form-input" placeholder="john@company.com" required id="femail" name="email" autocomplete="email">
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">SUBJECT</label>
-          <input type="text" class="form-input" placeholder="Job Opportunity / Collaboration / Hello" id="fsubject">
+          <label class="form-label" for="fsubject">SUBJECT</label>
+          <input type="text" class="form-input" placeholder="Job Opportunity / Collaboration / Hello" id="fsubject" name="subject">
         </div>
         <div class="form-group">
-          <label class="form-label">MESSAGE</label>
-          <textarea class="form-textarea" rows="5" placeholder="Tell me about the opportunity..." required id="fmessage"></textarea>
+          <label class="form-label" for="fmessage">MESSAGE</label>
+          <textarea class="form-textarea" rows="5" placeholder="Tell me about the opportunity..." required id="fmessage" name="message"></textarea>
         </div>
         <div class="form-hint">I usually respond within 24 hours</div>
         <button type="submit" class="form-submit">send_message() →</button>
-        <div class="form-status" id="formStatus"></div>
+        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
       </form>
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -1565,115 +1761,187 @@
     emailLink.href = `mailto:${user}@${domain}`;
   }
 
-  // Intersection observer for fade-in
-  document.querySelectorAll('.skill-category, .project-card, .achievement-card, .course-card, .exp-item, .edu-card').forEach(el => {
-    el.classList.add('fade-in');
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    obs.observe(el);
+  // Theme toggle
+  (function () {
+    const root = document.documentElement;
+    const themeButton = document.getElementById('themeToggle');
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    const colors = { dark: '#0a0e14', light: '#f6f8fb' };
+
+    function applyTheme(theme) {
+      root.dataset.theme = theme;
+      themeButton.setAttribute('aria-pressed', String(theme === 'light'));
+      themeButton.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`);
+      if (themeMeta) themeMeta.content = colors[theme];
+    }
+
+    applyTheme(root.dataset.theme || 'dark');
+    themeButton.addEventListener('click', () => {
+      const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.classList.add('theme-anim');
+      applyTheme(nextTheme);
+      try { localStorage.setItem('theme', nextTheme); } catch (error) {}
+      setTimeout(() => root.classList.remove('theme-anim'), 350);
+    });
+  })();
+
+  // One shared observer for reveal animations.
+  const revealItems = document.querySelectorAll('.skill-category, .project-card, .achievement-card, .course-card, .exp-item, .edu-card');
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealItems.forEach(item => {
+    item.classList.add('fade-in');
+    revealObserver.observe(item);
   });
+
+  // Run the metric count-up once when the hero enters view. Ranges stay literal.
+  const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const metricValues = document.querySelectorAll('.stat-num[data-count]');
+  if (!motionReduced && metricValues.length) {
+    const metricObserver = new IntersectionObserver((entries, observer) => {
+      if (!entries.some(entry => entry.isIntersecting)) return;
+      metricValues.forEach(metric => {
+        const target = Number(metric.dataset.count);
+        const suffix = metric.dataset.suffix || '';
+        const duration = 850;
+        const started = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - started) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          metric.textContent = `${Math.round(target * eased)}${suffix}`;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        metric.textContent = `0${suffix}`;
+        requestAnimationFrame(tick);
+      });
+      observer.disconnect();
+    }, { threshold: 0.45 });
+    metricObserver.observe(document.querySelector('.hero-stats'));
+  }
 
   // Contact form — calls Spring Boot API
   const API_BASE = 'https://mayank-portfolio-backend.onrender.com';
-  document.getElementById('contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('.form-submit');
-    const statusEl = document.getElementById('formStatus');
-    btn.textContent = 'sending...';
-    btn.disabled = true;
+  const form = document.getElementById('contactForm');
+  const statusEl = document.getElementById('formStatus');
+  let warmed = false;
+  const warm = () => {
+    if (warmed) return;
+    warmed = true;
+    fetch(`${API_BASE}/api/health`, { mode: 'cors' }).catch(() => {});
+  };
+  form.addEventListener('focusin', warm, { once: true });
 
-    // Show loading state
-    statusEl.className = 'form-status loading fade-in';
-    statusEl.textContent = '⏳ Sending your message...';
+  function setStatus(type, message, html = false) {
+    statusEl.className = `form-status ${type} fade-in`;
+    statusEl[html ? 'innerHTML' : 'textContent'] = message;
+    statusEl.setAttribute('role', type === 'error' ? 'alert' : 'status');
     statusEl.style.display = 'block';
+  }
 
-    const name    = document.getElementById('fname').value;
-    const email   = document.getElementById('femail').value;
-    const subject = document.getElementById('fsubject').value;
-    const message = document.getElementById('fmessage').value;
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('.form-submit');
+    const payload = Object.fromEntries(new FormData(form));
+    if (payload.website) return;
+    delete payload.website;
 
-    const payload = { name, email, subject, message };
-
-    const showMailtoFallback = () => {
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-      const subj = encodeURIComponent(subject || 'Message from portfolio');
-      statusEl.className = 'form-status error fade-in';
-      statusEl.innerHTML = `API unreachable — <a href="mailto:ce.mayank8@gmail.com?subject=${subj}&body=${body}" style="color:var(--neon);text-decoration:underline;">click here to send via your email client ↗</a>`;
-      statusEl.style.display = 'block';
-    };
-
-    // document.getElementById("resume-link").href = `${API_BASE}/api/resume/download`;
+    let ok = false;
+    btn.disabled = true;
+    btn.textContent = 'sending...';
+    setStatus('loading', 'Sending your message...');
+    const slow = setTimeout(() => setStatus('loading', 'Server is waking up; this can take around 30 seconds...'), 4000);
+    const controller = new AbortController();
+    const abort = setTimeout(() => controller.abort(), 30000);
 
     try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 8000);
       const res = await fetch(`${API_BASE}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
         signal: controller.signal
       });
-
-      clearTimeout(timeout);
-      if (!res.ok) {
-        throw new Error("API failed");
-      }
-
-      let data;
-      try {
-        data = await res.json();
-      } catch {
-        data = { success: true }; // fallback
-      }
-
-      statusEl.className = 'form-status ' + (data.success ? 'success' : 'error');
-      statusEl.textContent = data.success
-        ? '✅ Message sent! I\'ll get back within 24 hours.'
-        : '❌ Failed to send message. Please try again.';
-
-      statusEl.style.display = 'block';
-      if (data.success) this.reset();
-    } catch (err) {
-      showMailtoFallback();
+      if (!res.ok) throw new Error(res.status);
+      const data = await res.json().catch(() => ({ success: true }));
+      ok = !!data.success;
+      setStatus(ok ? 'success' : 'error', ok ? 'Message sent. I reply within 24 hours.' : 'Could not send. Please retry or email me directly.');
+      if (ok) form.reset();
+    } catch {
+      const subject = encodeURIComponent(payload.subject || 'Portfolio message');
+      const body = encodeURIComponent(`Name: ${payload.name || ''}\nEmail: ${payload.email || ''}\n\n${payload.message || ''}`);
+      setStatus('error', `Server unreachable. <a href="mailto:ce.mayank8@gmail.com?subject=${subject}&body=${body}" style="color:var(--neon);text-decoration:underline;">Send via email client ↗</a>`, true);
+    } finally {
+      clearTimeout(slow);
+      clearTimeout(abort);
+      btn.textContent = ok ? 'sent ✓' : 'retry →';
+      setTimeout(() => {
+        btn.textContent = 'send_message() →';
+        btn.disabled = false;
+      }, 1500);
     }
-
-    btn.textContent = data.success ? 'sent ✓' : 'retry →';
-    setTimeout(() => {
-      btn.textContent = 'send_message() →';
-      btn.disabled = false;
-    }, 1500);
   });
 
-  // Typing effect for hero
-  const titles = ['Backend Engineer · Payments', 'Secure 3DS2 Platform Builder', 'Distributed Systems Engineer', 'Java · Spring Boot · Kafka'];
-  let ti = 0, ci = 0, isDeleting = false;
-  const el = document.querySelector('.hero-title');
-  if (el) {
-    function type() {
-      const txt = titles[ti];
-      el.innerHTML = '> ' + txt.substring(0, ci) + '<span class="cursor"></span>';
-      if (!isDeleting) {
-        if (ci < txt.length) { ci++; setTimeout(type, 65); }
-        else { isDeleting = true; setTimeout(type, 1800); }
+  // Rotating role line: keeps the personal terminal identity without changing the core message.
+  const titles = ['Backend Engineer · Payments', 'Java Microservices Architect', 'Distributed Systems Builder', 'Kafka & Spring Boot Engineer'];
+  let titleIndex = 0;
+  let characterIndex = 0;
+  let deleting = false;
+  const titleElement = document.querySelector('.hero-title');
+  if (titleElement && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    function typeTitle() {
+      const title = titles[titleIndex];
+      titleElement.innerHTML = `&gt; ${title.substring(0, characterIndex)}<span class="cursor"></span>`;
+      if (!deleting) {
+        if (characterIndex < title.length) { characterIndex++; setTimeout(typeTitle, 60); }
+        else { deleting = true; setTimeout(typeTitle, 1800); }
+      } else if (characterIndex > 0) {
+        characterIndex--; setTimeout(typeTitle, 35);
       } else {
-        if (ci > 0) { ci--; setTimeout(type, 35); }
-        else { isDeleting = false; ti = (ti + 1) % titles.length; setTimeout(type, 300); }
+        deleting = false;
+        titleIndex = (titleIndex + 1) % titles.length;
+        setTimeout(typeTitle, 300);
       }
     }
-    setTimeout(type, 800);
+    setTimeout(typeTitle, 500);
   }
 
-  // Nav active state
+  // Mobile navigation and active section state
+  const burger = document.querySelector('.nav-burger');
+  const menu = document.getElementById('navMenu');
+  burger.addEventListener('click', () => {
+    const open = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!open));
+    burger.setAttribute('aria-label', open ? 'Open navigation menu' : 'Close navigation menu');
+    menu.classList.toggle('open', !open);
+  });
+  menu.addEventListener('click', (event) => {
+    if (event.target.tagName === 'A') {
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Open navigation menu');
+    }
+  });
+
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+  const setActiveNav = (id) => {
     navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--neon)' : '';
+      const active = a.getAttribute('href') === '#' + id;
+      a.classList.toggle('active', active);
+      if (active) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
     });
-  });
+  };
+  const navObserver = new IntersectionObserver((entries) => {
+    const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) setActiveNav(visible.target.id);
+  }, { rootMargin: '-25% 0px -60% 0px', threshold: [0.1, 0.35, 0.6] });
+  sections.forEach(section => navObserver.observe(section));
 </script>
 </body>
 </html>
