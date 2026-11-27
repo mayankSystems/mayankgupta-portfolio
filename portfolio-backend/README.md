@@ -22,11 +22,13 @@ portfolio-backend/
 │       │   │   ├── ContactRequest.java        ← Validated request body
 │       │   │   └── ApiResponse.java           ← Consistent API wrapper
 │       │   └── config/
-│       │       └── CorsConfig.java            ← CORS configuration
+│       │       ├── CorsConfig.java            ← CORS configuration
+│       │       └── GlobalExceptionHandler.java ← Validation + generic error handling
 │       └── resources/
 │           ├── application.properties
 │           └── static/
-│               └── resume.pdf  ← PUT YOUR RESUME HERE
+│               ├── resume-v3.pdf  ← Latest resume (served via API)
+│               └── resume.pdf     ← Backup resume
 ├── pom.xml
 ├── Dockerfile
 └── render.yaml
@@ -36,12 +38,12 @@ portfolio-backend/
 
 ## ⚙️ Backend API Endpoints
 
-| Method | Endpoint              | Description                    | Rate Limit |
-|--------|-----------------------|--------------------------------|-----------|
-| GET    | `/api/health`         | Health check (Railway uses this) | None |
-| GET    | `/api/info`           | Portfolio owner info           | None |
-| POST   | `/api/contact`        | Contact form submission        | 3 requests/hour per IP |
-| GET    | `/api/resume/download`| Download resume PDF            | None |
+| Method | Endpoint | Description | Rate Limit |
+|--------|----------|-------------|------------|
+| GET | `/api/health` | Health check (Railway/Render) | None |
+| GET | `/api/info` | Portfolio owner info | None |
+| POST | `/api/contact` | Contact form submission | 3 requests/hour per IP |
+| GET | `/api/resume/download` | Download resume PDF | None |
 
 ---
 
@@ -95,8 +97,10 @@ cd portfolio-backend
 2. Set environment variables:
 ```bash
 export SENDGRID_API_KEY=your-sendgrid-api-key
+export CONTACT_EMAIL=ce.mayank8@gmail.com
+export FROM_EMAIL=ce.mayank8@gmail.com
 export PORT=8080
-export FRONTEND_URL=http://localhost:5173
+export FRONTEND_URL=http://localhost:3000
 ```
 
 3. Run the backend:
@@ -128,6 +132,11 @@ curl -X POST http://localhost:8080/api/contact \
     "subject": "Job Opportunity",
     "message": "Hey Mayank, I have an exciting opportunity for you!"
   }'
+```
+
+**Download Resume:**
+```bash
+curl -L http://localhost:8080/api/resume/download --output Mayank_Gupta_Resume.pdf
 ```
 
 ---
@@ -163,6 +172,8 @@ curl -X POST http://localhost:8080/api/contact \
 
 ```
 SENDGRID_API_KEY=your-sendgrid-api-key
+CONTACT_EMAIL=ce.mayank8@gmail.com
+FROM_EMAIL=ce.mayank8@gmail.com
 PORT=8080
 FRONTEND_URL=https://your-portfolio.vercel.app
 ```
@@ -175,13 +186,13 @@ FRONTEND_URL=https://your-portfolio.vercel.app
 
 ### Step 3 — Deploy Frontend to Vercel
 
-1. Push frontend/index.html and photo.jpg to a GitHub repo
+1. Push frontend folder to a GitHub repo
 2. Go to vercel.com → New Project → Import your GitHub repo
 3. Set Framework to "Other" (it's a static HTML file)
 4. Set Output Directory to . (root)
 5. Deploy!
 
-6. Update API_BASE in frontend/index.html:
+6. Update API_BASE in portfolio/index.html:
 ```javascript
 const API_BASE = 'https://portfolio-backend.onrender.com';
 ```
@@ -227,17 +238,17 @@ Both notification and confirmation emails use:
 
 ## 🛠️ Tech Stack
 
-| Layer        | Technology             |
-|-------------|-------------------------|
-| Runtime | Java 17                     |
-| Framework | Spring Boot 3.2.5         |
-| Build   | Maven 3.8+                  |
-| Email   | SendGrid Java SDK v4.9.3    |
-| Rate Limiting | Bucket4j v8.10.1      |
-| Validation | Jakarta Bean Validation  |
-| Logging | SLF4J + Logback             |
-| Utilities | Lombok                    |
-| Deploy | Docker + Render              |
+| Layer | Technology |
+|-------|------------|
+| Runtime | Java 17 |
+| Framework | Spring Boot 3.2.5 |
+| Build | Maven 3.8+ |
+| Email | SendGrid Java SDK v4.9.3 |
+| Rate Limiting | Bucket4j v8.10.1 |
+| Validation | Jakarta Bean Validation |
+| Logging | SLF4J + Logback |
+| Utilities | Lombok |
+| Deploy | Docker + Render |
 
 ---
 
@@ -284,7 +295,7 @@ Key dependencies (see pom.xml for complete list):
 ### Email not sending
 - Verify SENDGRID_API_KEY is set correctly
 - Check SendGrid account for API key restrictions
-- Review logs: tail -f logs/portfolio.log
+- Review logs: `tail -f logs/portfolio.log`
 
 ### Rate limit errors (429)
 - Normal behavior when limit exceeded
@@ -295,7 +306,7 @@ Key dependencies (see pom.xml for complete list):
 - Verify FRONTEND_URL matches your deployed frontend URL
 - Update portfolio.cors.allowed-origins in application.properties
 
-### Health check failing on Railway
+### Health check failing on Railway/Render
 - Ensure SENDGRID_API_KEY environment variable is set
 - Check that spring.mail.test-connection=false is in application.properties
 
@@ -312,10 +323,10 @@ server.port=${PORT:8080}
 # Portfolio Config
 portfolio.email.to=ce.mayank8@gmail.com
 portfolio.email.from=noreply@mayank.dev
-portfolio.resume.path=classpath:static/resume.pdf
+portfolio.resume.path=classpath:static/resume-v3.pdf
 
 # CORS
-portfolio.cors.allowed-origins=http://localhost:5173,${FRONTEND_URL}
+portfolio.cors.allowed-origins=http://localhost:3000,${FRONTEND_URL}
 
 # Actuator (Health checks)
 management.endpoints.web.exposure.include=health,info
@@ -324,6 +335,25 @@ management.endpoint.health.show-details=always
 # Logging
 logging.level.dev.mayank=INFO
 ```
+
+---
+
+## 🧪 Testing
+
+```bash
+cd portfolio-backend
+
+# All tests
+mvn test
+
+# Single test class
+mvn test -Dtest=ContactControllerTest
+
+# Single test method
+mvn test -Dtest=ContactControllerTest#sendMessage_validRequest_returns200
+```
+
+Test structure: `@WebMvcTest` for controller layer with `@MockBean` for `ContactService`.
 
 ---
 

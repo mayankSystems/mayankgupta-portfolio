@@ -7,6 +7,12 @@
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0a0e14">
 <script>
+  window.va = window.va || function () {
+    (window.vaq = window.vaq || []).push(arguments);
+  };
+</script>
+<script defer src="/<unique-path>/script.js"></script>
+<script>
   (function () {
     document.documentElement.classList.add('js');
     try {
